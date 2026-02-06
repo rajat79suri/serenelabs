@@ -275,6 +275,7 @@
       margin-top: 40px;
     }
     @media (max-width: 900px) { .product-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .product-metrics { grid-template-columns: repeat(2, 1fr) !important; } .product-table { display: none; } }
     .product-features {
       list-style: none;
       margin-top: 24px;
@@ -635,18 +636,94 @@
         </ul>
         <a href="#contact" class="btn btn-primary" style="margin-top: 24px;">Request a Demo</a>
       </div>
+
+      <!-- Live Map Mockup -->
       <div class="product-mockup fade-up stagger-3">
-        <div class="mockup-screen">
-          <div class="mockup-header">
-            <h4>Today's Check-ins</h4>
-            <div class="mockup-dot"></div>
+        <div style="border-radius: 16px; overflow: hidden; position: relative; height: 320px; background: linear-gradient(180deg, #e8f4e8 0%, #d4e8d4 50%, #c8e0c8 100%);">
+          <!-- Map grid -->
+          <div style="position: absolute; inset: 0; opacity: 0.4;">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <defs><pattern id="mapgrid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#a0c4a0" stroke-width="0.5"/></pattern></defs>
+              <rect width="100%" height="100%" fill="url(#mapgrid)"/>
+            </svg>
           </div>
-          <div class="mockup-row"><span>Amit Sharma</span><span>4 visits</span></div>
-          <div class="mockup-row"><span>Priya Patel</span><span>6 visits</span></div>
-          <div class="mockup-row"><span>Raj Mehta</span><span>3 visits</span></div>
-          <div class="mockup-row"><span>Sneha Gupta</span><span>5 visits</span></div>
-          <div style="margin-top: 16px; font-size: 12px; color: var(--text-muted);">Last updated: 2 min ago</div>
+          <!-- Location markers -->
+          <div style="position: absolute; top: 20%; left: 25%; width: 28px; height: 28px; background: #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px; box-shadow: 0 4px 12px rgba(34,197,94,0.4);">3</div>
+          <div style="position: absolute; top: 45%; left: 50%; width: 28px; height: 28px; background: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px; box-shadow: 0 4px 12px rgba(59,130,246,0.4);">5</div>
+          <div style="position: absolute; top: 60%; left: 30%; width: 28px; height: 28px; background: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px; box-shadow: 0 4px 12px rgba(59,130,246,0.4);">2</div>
+          <div style="position: absolute; top: 35%; left: 70%; width: 28px; height: 28px; background: #f97316; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; box-shadow: 0 4px 12px rgba(249,115,22,0.4);">📍</div>
+          <div style="position: absolute; top: 70%; left: 65%; width: 28px; height: 28px; background: #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px; box-shadow: 0 4px 12px rgba(34,197,94,0.4);">4</div>
+          <!-- Info popup -->
+          <div style="position: absolute; top: 15%; left: 45%; background: white; border-radius: 10px; padding: 12px 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); min-width: 140px;">
+            <div style="font-weight: 700; font-size: 13px; color: #1a1a1a;">Priya Patel</div>
+            <div style="font-size: 11px; color: #666; margin-top: 2px;">Andheri West</div>
+            <div style="font-size: 11px; color: #22c55e; margin-top: 1px;">● Active now</div>
+          </div>
+          <!-- Area labels -->
+          <div style="position: absolute; top: 12%; left: 10%; font-size: 10px; color: #555; font-weight: 500;">ANDHERI</div>
+          <div style="position: absolute; top: 50%; left: 58%; font-size: 10px; color: #555; font-weight: 500;">POWAI</div>
+          <div style="position: absolute; bottom: 15%; left: 15%; font-size: 10px; color: #555; font-weight: 500;">BKC</div>
         </div>
+        <div style="text-align: center; margin-top: 12px; color: rgba(245,237,227,0.7); font-size: 13px;">Live Team Location Map</div>
+      </div>
+    </div>
+
+    <!-- Dashboard Metrics Row -->
+    <div class="fade-up stagger-4 product-metrics" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px;">
+      <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 20px; text-align: center;">
+        <div style="font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: var(--accent-amber); line-height: 1;">24</div>
+        <div style="font-size: 12px; color: rgba(245,237,227,0.6); margin-top: 4px;">Today's Visits</div>
+      </div>
+      <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 20px; text-align: center;">
+        <div style="font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: #22c55e; line-height: 1;">4/4</div>
+        <div style="font-size: 12px; color: rgba(245,237,227,0.6); margin-top: 4px;">Reps Active</div>
+      </div>
+      <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 20px; text-align: center;">
+        <div style="font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: var(--accent-orange); line-height: 1;">8</div>
+        <div style="font-size: 12px; color: rgba(245,237,227,0.6); margin-top: 4px;">Meetings Fixed</div>
+      </div>
+      <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 20px; text-align: center;">
+        <div style="font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: #3b82f6; line-height: 1;">12</div>
+        <div style="font-size: 12px; color: rgba(245,237,227,0.6); margin-top: 4px;">New Contacts</div>
+      </div>
+    </div>
+
+    <!-- Rep Activity Table -->
+    <div class="fade-up stagger-5 product-table" style="margin-top: 24px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; overflow: hidden;">
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; background: rgba(255,255,255,0.08); padding: 12px 20px; font-size: 11px; font-weight: 600; color: rgba(245,237,227,0.5); text-transform: uppercase; letter-spacing: 1px;">
+        <div>Rep</div>
+        <div style="text-align: center;">Start</div>
+        <div style="text-align: center;">Visits</div>
+        <div style="text-align: center;">Contacts</div>
+        <div style="text-align: center;">Meetings</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; color: rgba(245,237,227,0.8);">
+        <div style="font-weight: 600;">Priya Patel</div>
+        <div style="text-align: center; color: #22c55e;">9:15 AM ✓</div>
+        <div style="text-align: center;">8</div>
+        <div style="text-align: center;">4</div>
+        <div style="text-align: center;">3</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; color: rgba(245,237,227,0.8);">
+        <div style="font-weight: 600;">Amit Sharma</div>
+        <div style="text-align: center; color: #22c55e;">9:30 AM ✓</div>
+        <div style="text-align: center;">6</div>
+        <div style="text-align: center;">3</div>
+        <div style="text-align: center;">2</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; color: rgba(245,237,227,0.8);">
+        <div style="font-weight: 600;">Raj Mehta</div>
+        <div style="text-align: center; color: #eab308;">11:45 AM</div>
+        <div style="text-align: center;">5</div>
+        <div style="text-align: center;">3</div>
+        <div style="text-align: center;">2</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; padding: 14px 20px; font-size: 14px; color: rgba(245,237,227,0.8);">
+        <div style="font-weight: 600;">Sneha Gupta</div>
+        <div style="text-align: center; color: #22c55e;">10:00 AM ✓</div>
+        <div style="text-align: center;">5</div>
+        <div style="text-align: center;">2</div>
+        <div style="text-align: center;">1</div>
       </div>
     </div>
   </div>
