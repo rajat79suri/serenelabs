@@ -183,7 +183,50 @@
       align-items: center;
       padding-top: 120px;
     }
+    .hero-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    @media (max-width: 900px) { .hero-wrapper { grid-template-columns: 1fr; } .hero-visual { display: none; } }
     .hero-content { position: relative; z-index: 2; }
+    .hero-visual {
+      position: relative;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-icon {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: var(--bg-card);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      animation: float 3s ease-in-out infinite;
+    }
+    .hero-icon:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+    .hero-icon:nth-child(2) { top: 25%; right: 15%; animation-delay: 0.5s; }
+    .hero-icon:nth-child(3) { top: 55%; left: 10%; animation-delay: 1s; }
+    .hero-icon:nth-child(4) { top: 70%; right: 25%; animation-delay: 1.5s; }
+    .hero-icon:nth-child(5) { top: 40%; left: 45%; animation-delay: 0.75s; width: 80px; height: 80px; font-size: 36px; background: var(--text-primary); color: var(--bg); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    .display.animate {
+      animation: slideUp 0.8s ease-out forwards;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     .hero-tagline {
       font-size: 17px;
       color: var(--text-secondary);
@@ -609,14 +652,23 @@
 <section id="hero">
   <div class="blob blob-main" style="top: -200px; right: -200px;"></div>
   <div class="container">
-    <div class="hero-content">
-      <h1 class="display fade-up">AUTOMATE<br>THE BORING.</h1>
-      <p class="hero-tagline fade-up stagger-1">
-        An automation agency that helps you build systems that run your business while you sleep.
-      </p>
-      <div class="hero-buttons fade-up stagger-3">
-        <a href="#contact" class="btn btn-primary">Let's Talk</a>
-        <a href="#services" class="btn btn-outline">What We Do</a>
+    <div class="hero-wrapper">
+      <div class="hero-content">
+        <h1 class="display animate">AUTOMATE<br>THE BORING.</h1>
+        <p class="hero-tagline fade-up stagger-1">
+          An automation agency that helps you build systems that run your business while you sleep.
+        </p>
+        <div class="hero-buttons fade-up stagger-3">
+          <a href="#contact" class="btn btn-primary">Let's Talk</a>
+          <a href="#services" class="btn btn-outline">What We Do</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg></div>
+        <div class="hero-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+        <div class="hero-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+        <div class="hero-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></div>
+        <div class="hero-icon"><svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
       </div>
     </div>
   </div>
