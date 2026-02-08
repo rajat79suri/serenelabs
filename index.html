@@ -1099,18 +1099,21 @@
 </footer>
 
 <script>
-  // Show thank you message if form was submitted
+  // Show thank you message and open Cal.com if form was submitted
   if (window.location.search.includes('submitted=true')) {
     const toast = document.createElement('div');
     toast.innerHTML = `
-      <div style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #22c55e; color: white; padding: 16px 32px; border-radius: 12px; font-weight: 600; font-size: 15px; z-index: 10000; box-shadow: 0 4px 20px rgba(0,0,0,0.15); animation: slideDown 0.3s ease;">
-        ✓ Thanks! We'll get back to you soon. Check your inbox for next steps.
+      <div style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #22c55e; color: white; padding: 20px 32px; border-radius: 12px; font-size: 15px; z-index: 10000; box-shadow: 0 4px 20px rgba(0,0,0,0.15); text-align: center; max-width: 90%;">
+        <div style="font-weight: 700;">✓ Thanks! Your message has been sent.</div>
+        <div style="opacity: 0.95; margin-top: 6px;">Meanwhile, block your time on the calendar.</div>
       </div>
     `;
     document.body.appendChild(toast);
-    setTimeout(() => toast.remove(), 6000);
+    setTimeout(() => toast.remove(), 8000);
     // Clean URL
     history.replaceState(null, '', window.location.pathname);
+    // Open Cal.com in popup
+    window.open('https://cal.com/rajat-suri-jh33ia/15min', '_blank', 'width=600,height=700');
   }
 
   // Scroll animation observer
