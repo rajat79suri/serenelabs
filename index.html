@@ -465,7 +465,8 @@
       color: var(--text-primary);
     }
     .form-group input,
-    .form-group textarea {
+    .form-group textarea,
+    .form-group select {
       width: 100%;
       padding: 14px 16px;
       border: 1px solid rgba(0,0,0,0.1);
@@ -475,8 +476,16 @@
       background: var(--bg);
       transition: border-color 0.3s;
     }
+    .form-group select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+    }
     .form-group input:focus,
-    .form-group textarea:focus {
+    .form-group textarea:focus,
+    .form-group select:focus {
       outline: none;
       border-color: var(--accent-orange);
     }
@@ -1039,6 +1048,7 @@
         <input type="hidden" name="_subject" value="Serenelabs">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://serenelabs.vercel.app/?submitted=true">
         <input type="hidden" name="_autoresponse" value="Hi! Thanks for reaching out to Serene Labs. We'd love to learn more about your business and how we can help you automate. Book a quick 15-min discovery call here: https://cal.com/rajat-suri-jh33ia/15min - Talk soon!">
         <div class="form-group">
           <label for="name">Name</label>
@@ -1054,11 +1064,26 @@
         </div>
         <div class="form-group">
           <label for="company">Company</label>
-          <input type="text" id="company" name="company">
+          <input type="text" id="company" name="company" required>
         </div>
         <div class="form-group">
-          <label for="message">What do you need help with?</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
+          <label for="service">What are you looking to automate?</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option value="Social Media Automation">Social Media Automation</option>
+            <option value="Email & Follow-up Automation">Email & Follow-up Automation</option>
+            <option value="CRM & Lead Management">CRM & Lead Management</option>
+            <option value="Website Development">Website Development</option>
+            <option value="SEO & Search Visibility">SEO & Search Visibility</option>
+            <option value="Lead Generation">Lead Generation</option>
+            <option value="Marketing Automation">Marketing Automation</option>
+            <option value="WhatsApp & Chatbot Automation">WhatsApp & Chatbot Automation</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Remarks (Optional)</label>
+          <textarea id="message" name="message" rows="4"></textarea>
         </div>
         <button type="submit" class="form-submit">Send Message</button>
       </form>
@@ -1074,6 +1099,20 @@
 </footer>
 
 <script>
+  // Show thank you message if form was submitted
+  if (window.location.search.includes('submitted=true')) {
+    const toast = document.createElement('div');
+    toast.innerHTML = `
+      <div style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #22c55e; color: white; padding: 16px 32px; border-radius: 12px; font-weight: 600; font-size: 15px; z-index: 10000; box-shadow: 0 4px 20px rgba(0,0,0,0.15); animation: slideDown 0.3s ease;">
+        ✓ Thanks! We'll get back to you soon. Check your inbox for next steps.
+      </div>
+    `;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 6000);
+    // Clean URL
+    history.replaceState(null, '', window.location.pathname);
+  }
+
   // Scroll animation observer
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
