@@ -97,9 +97,45 @@
       transition: color 0.3s;
     }
     .nav-links a:hover { color: var(--accent-orange); }
+
+    /* Mobile Menu */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1001;
+    }
+    .nav-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--text-primary);
+      transition: all 0.3s;
+    }
+    .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
     @media (max-width: 768px) {
       nav { padding: 16px 24px; }
-      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--bg);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        z-index: 1000;
+      }
+      .nav-links.active { display: flex; }
+      .nav-links a { font-size: 24px; font-weight: 600; }
     }
 
     /* Sections */
@@ -540,13 +576,18 @@
   <div class="nav-brand">
     <span style="font-size: 24px; font-weight: 800; letter-spacing: 1px; color: var(--text-primary);">SERENE<span style="color: var(--accent-orange);">LABS</span></span>
   </div>
-  <div class="nav-links">
+  <div class="nav-links" id="navLinks">
     <a href="#about">About</a>
     <a href="#flows">How It Works</a>
     <a href="#services">Services</a>
     <a href="#cases">Our Work</a>
     <a href="#product">Zoieq</a>
     <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-toggle" id="navToggle" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
 </nav>
 
@@ -1093,12 +1134,25 @@
 
 <!-- Footer -->
 <footer>
-  <img src="logo.png" alt="Serene Labs" style="height: 40px; width: auto; filter: invert(1) brightness(2); margin-bottom: 16px;">
+  <span style="font-size: 20px; font-weight: 800; letter-spacing: 1px; color: var(--bg);">SERENE<span style="color: var(--accent-orange);">LABS</span></span>
   <p>&copy; 2026 Serene Labs. Built with ☕ and automation.</p>
   <p style="margin-top: 8px;"><a href="#hero">Back to top</a></p>
 </footer>
 
 <script>
+  // Mobile menu toggle
+  function toggleMenu() {
+    document.getElementById('navToggle').classList.toggle('active');
+    document.getElementById('navLinks').classList.toggle('active');
+  }
+  // Close menu when clicking a link
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('navToggle').classList.remove('active');
+      document.getElementById('navLinks').classList.remove('active');
+    });
+  });
+
   // Show thank you message and open Cal.com if form was submitted
   if (window.location.search.includes('submitted=true')) {
     const toast = document.createElement('div');
