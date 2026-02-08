@@ -1725,18 +1725,20 @@
     document.getElementById('quizResultText').textContent = text;
   }
 
-  // Show thank you message for quiz completion
+  // Show thank you message for quiz completion and open Cal.com
   if (window.location.search.includes('quiz=complete')) {
     const toast = document.createElement('div');
     toast.innerHTML = `
       <div style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #22c55e; color: white; padding: 20px 32px; border-radius: 12px; font-size: 15px; z-index: 10000; box-shadow: 0 4px 20px rgba(0,0,0,0.15); text-align: center; max-width: 90%;">
-        <div style="font-weight: 700;">Thanks! Your automation roadmap is on the way.</div>
-        <div style="opacity: 0.95; margin-top: 6px;">We'll reach out within 24 hours.</div>
+        <div style="font-weight: 700;">Thanks! We've received your assessment.</div>
+        <div style="opacity: 0.95; margin-top: 6px;">Book a call to discuss your automation roadmap.</div>
       </div>
     `;
     document.body.appendChild(toast);
-    setTimeout(() => toast.remove(), 6000);
+    setTimeout(() => toast.remove(), 8000);
     history.replaceState(null, '', window.location.pathname);
+    // Open Cal.com
+    window.open('https://cal.com/rajat-suri-jh33ia/15min', '_blank', 'width=600,height=700');
   }
 
   // Show thank you message and open Cal.com if form was submitted
