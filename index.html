@@ -191,9 +191,9 @@
       font-size: 17px;
     }
     .about-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
     .stat-card {
       background: var(--bg-card);
@@ -537,46 +537,41 @@
 <!-- About -->
 <section id="about">
   <div class="container">
-    <div style="text-align: center; margin-bottom: 40px;">
-      <span class="label fade-up">About Us</span>
-      <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">BUILT BY OPERATORS. NOT CONSULTANTS.</h2>
-    </div>
-
-    <div class="fade-up stagger-2 about-two-col" style="margin-bottom: 40px;">
-      <!-- Left Column -->
-      <div class="about-text">
-        <p>Born out of a passion to build systems and automations that solve problems, not create them.</p>
-        <p><strong>The core question:</strong> why are businesses still doing manually what software can do better?</p>
-        <p>Every day, teams waste hours chasing leads, updating spreadsheets, sending follow-ups, and generating reports. It's not that they're lazy — it's that no one built them a better way.</p>
-        <p><strong>We did.</strong></p>
-      </div>
-      <!-- Right Column -->
-      <div class="about-text">
-        <p>Serene Labs leverages AI to help businesses:</p>
-        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0;">
-          <span style="background: var(--text-primary); color: var(--bg); padding: 6px 14px; border-radius: 100px; font-size: 13px; font-weight: 500;">Get more leads</span>
-          <span style="background: var(--text-primary); color: var(--bg); padding: 6px 14px; border-radius: 100px; font-size: 13px; font-weight: 500;">Convert more customers</span>
-          <span style="background: var(--text-primary); color: var(--bg); padding: 6px 14px; border-radius: 100px; font-size: 13px; font-weight: 500;">Scale operations</span>
-          <span style="background: var(--text-primary); color: var(--bg); padding: 6px 14px; border-radius: 100px; font-size: 13px; font-weight: 500;">Automate repetitive work</span>
-          <span style="background: var(--text-primary); color: var(--bg); padding: 6px 14px; border-radius: 100px; font-size: 13px; font-weight: 500;">Grow without adding headcount</span>
+    <div class="about-grid">
+      <!-- Left: All Text -->
+      <div class="about-content">
+        <span class="label fade-up">About Us</span>
+        <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">BUILT BY OPERATORS.<br>NOT CONSULTANTS.</h2>
+        <div class="about-text fade-up stagger-2" style="margin-top: 24px;">
+          <p>Born out of a passion to build systems and automations that solve problems, not create them.</p>
+          <p><strong>The core question:</strong> why are businesses still doing manually what software can do better?</p>
+          <p>Every day, teams waste hours chasing leads, updating spreadsheets, sending follow-ups, and generating reports. It's not that they're lazy — it's that no one built them a better way.</p>
+          <p><strong>We did.</strong></p>
+          <p>Serene Labs leverages AI to help businesses:</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0;">
+            <span style="background: var(--text-primary); color: var(--bg); padding: 6px 14px; border-radius: 100px; font-size: 13px; font-weight: 500;">Get more leads</span>
+            <span style="background: var(--text-primary); color: var(--bg); padding: 6px 14px; border-radius: 100px; font-size: 13px; font-weight: 500;">Convert more customers</span>
+            <span style="background: var(--text-primary); color: var(--bg); padding: 6px 14px; border-radius: 100px; font-size: 13px; font-weight: 500;">Scale operations</span>
+            <span style="background: var(--text-primary); color: var(--bg); padding: 6px 14px; border-radius: 100px; font-size: 13px; font-weight: 500;">Automate repetitive work</span>
+            <span style="background: var(--text-primary); color: var(--bg); padding: 6px 14px; border-radius: 100px; font-size: 13px; font-weight: 500;">Grow without adding headcount</span>
+          </div>
+          <p><strong>No fluff. Just stuff that works.</strong></p>
         </div>
-        <p>We build systems that actually work — because we've built and used them ourselves.</p>
-        <p><strong>No fluff. Just stuff that works.</strong></p>
       </div>
-    </div>
-
-    <div class="about-stats fade-up stagger-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
-      <div class="stat-card">
-        <div class="stat-value">20+</div>
-        <div class="stat-label">Years Building Systems</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value">50+</div>
-        <div class="stat-label">Solutions Delivered</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value">80%</div>
-        <div class="stat-label">Less Manual Work</div>
+      <!-- Right: Stats -->
+      <div class="about-stats fade-up stagger-3">
+        <div class="stat-card">
+          <div class="stat-value">20+</div>
+          <div class="stat-label">Years Building Systems</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">50+</div>
+          <div class="stat-label">Solutions Delivered</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">80%</div>
+          <div class="stat-label">Less Manual Work</div>
+        </div>
       </div>
     </div>
   </div>
