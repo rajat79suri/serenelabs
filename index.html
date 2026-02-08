@@ -104,8 +104,11 @@
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
-      padding: 8px;
+      padding: 12px;
       z-index: 1001;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
     }
     .nav-toggle span {
       width: 24px;
@@ -595,7 +598,7 @@
     <a href="#product">Zoieq</a>
     <a href="#contact">Contact</a>
   </div>
-  <div class="nav-toggle" id="navToggle" onclick="toggleMenu()">
+  <div class="nav-toggle" id="navToggle">
     <span></span>
     <span></span>
     <span></span>
@@ -1152,16 +1155,30 @@
 
 <script>
   // Mobile menu toggle
-  function toggleMenu() {
-    document.getElementById('navToggle').classList.toggle('active');
-    document.getElementById('navLinks').classList.toggle('active');
-  }
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  navToggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    navToggle.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+
   // Close menu when clicking a link
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
-      document.getElementById('navToggle').classList.remove('active');
-      document.getElementById('navLinks').classList.remove('active');
+      navToggle.classList.remove('active');
+      navLinks.classList.remove('active');
     });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+      navToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+    }
   });
 
   // Show thank you message and open Cal.com if form was submitted
