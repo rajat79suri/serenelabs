@@ -344,7 +344,8 @@
       gap: 24px;
       margin-top: 40px;
     }
-    @media (max-width: 900px) { .cases-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 900px) { .cases-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .cases-grid { grid-template-columns: 1fr; } }
     .case-card {
       background: var(--bg-card);
       border-radius: 16px;
@@ -647,6 +648,54 @@
   </div>
 </section>
 
+<!-- Our Work -->
+<section id="cases">
+  <div class="container">
+    <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+      <span class="label fade-up">Our Work</span>
+      <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">REAL PROBLEMS. REAL SOLUTIONS.</h2>
+    </div>
+    <div class="cases-grid">
+      <div class="case-card fade-up stagger-1">
+        <span class="case-tag">Social Media</span>
+        <h3>Content & Posting Automation</h3>
+        <p>Automated social media system for a services business. Content calendar, scheduled posts, auto-publishing to Instagram and LinkedIn. Approve once, system posts on time.</p>
+        <div class="case-result">Consistent posting. Zero manual work.</div>
+      </div>
+      <div class="case-card fade-up stagger-2">
+        <span class="case-tag">WhatsApp Bot</span>
+        <h3>Booking Confirmation Automation</h3>
+        <p>WhatsApp bot for a travel company that sends booking confirmations, payment receipts, and trip reminders automatically. Customers can reply to ask questions or request changes.</p>
+        <div class="case-result">Instant confirmations. 24/7 response.</div>
+      </div>
+      <div class="case-card fade-up stagger-3">
+        <span class="case-tag">Lead Automation</span>
+        <h3>Lead Capture & Routing System</h3>
+        <p>Automated system for a B2B company that captures leads from website, WhatsApp, and social media. Every lead auto-assigned to the right sales rep. No manual sorting.</p>
+        <div class="case-result">Zero leads lost. Instant assignment.</div>
+      </div>
+      <div class="case-card fade-up stagger-1">
+        <span class="case-tag">Website</span>
+        <h3>Visa Services Website</h3>
+        <p>Fast, mobile-friendly website for a visa services business. Built for speed and search. Optimized for conversions with clear CTAs and trust signals.</p>
+        <div class="case-result">90+ PageSpeed. Built for conversions.</div>
+      </div>
+      <div class="case-card fade-up stagger-2">
+        <span class="case-tag">Dashboard</span>
+        <h3>Call Center Performance Tracker</h3>
+        <p>Multi-channel dashboard for a 50+ agent call center. Tracks calls, WhatsApp messages, and email tickets in one view. Managers see everything in real-time.</p>
+        <div class="case-result">Real-time visibility across 3 channels.</div>
+      </div>
+      <div class="case-card fade-up stagger-3">
+        <span class="case-tag">Field CRM</span>
+        <h3>Field Sales Tracking System</h3>
+        <p>PWA-based CRM for field teams with GPS check-ins, visit logs, lead capture, and manager dashboards. Works offline, syncs when connected.</p>
+        <div class="case-result">Live in 3 days. No app store needed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Product: Zoieq -->
 <section id="product">
   <div class="blob blob-main" style="bottom: -300px; left: -200px; opacity: 0.2;"></div>
@@ -761,35 +810,6 @@
   </div>
 </section>
 
-<!-- Case Studies -->
-<section id="cases">
-  <div class="container">
-    <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-      <span class="label fade-up">Our Work</span>
-      <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">REAL PROBLEMS. REAL SOLUTIONS.</h2>
-    </div>
-    <div class="cases-grid">
-      <div class="case-card fade-up stagger-1">
-        <span class="case-tag">Dashboard</span>
-        <h3>Call Center Performance Tracker</h3>
-        <p>Built a multi-channel dashboard for a 50+ agent travel call center — tracking calls (Exotel), WhatsApp (Peach), and email tickets (Freshdesk) in one view.</p>
-        <div class="case-result">→ Real-time visibility across 3 channels</div>
-      </div>
-      <div class="case-card fade-up stagger-2">
-        <span class="case-tag">CRM</span>
-        <h3>Field Sales Tracking System</h3>
-        <p>PWA-based CRM for field teams with GPS check-ins, visit logs, lead capture, and manager dashboards. Works offline, syncs when connected.</p>
-        <div class="case-result">→ Live in 3 days, no app store needed</div>
-      </div>
-      <div class="case-card fade-up stagger-3">
-        <span class="case-tag">Audit</span>
-        <h3>B2B Website Technical Audit</h3>
-        <p>Comprehensive audit for a travel tech company — identified 9 issues affecting search visibility, trust signals, and conversion. PageSpeed: 39 → targeted 80+.</p>
-        <div class="case-result">→ Actionable fixes, not just a report</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- Contact -->
 <section id="contact">
