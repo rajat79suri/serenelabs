@@ -808,7 +808,7 @@
       transition: max-height 0.3s ease, padding 0.3s ease;
     }
     .faq-item.active .faq-answer {
-      max-height: 300px;
+      max-height: 1000px;
     }
     .faq-answer p {
       padding: 0 24px 20px;
@@ -837,11 +837,14 @@
     }
     @media (max-width: 600px) { .review-card { flex: 0 0 300px; } }
     .case-card {
+      display: block;
       background: var(--bg-card);
       border-radius: 16px;
       padding: 32px 28px;
       border: 1px solid rgba(0,0,0,0.04);
       transition: all 0.3s;
+      text-decoration: none;
+      color: inherit;
     }
     .case-card:hover {
       transform: translateY(-4px);
@@ -999,6 +1002,224 @@
     .stagger-4 { transition-delay: 0.4s; }
     .stagger-5 { transition-delay: 0.5s; }
     .stagger-6 { transition-delay: 0.6s; }
+
+    /* Client Logos Section */
+    .clients-section { padding: 50px 40px; background: var(--bg); }
+    @media (max-width: 768px) { .clients-section { padding: 40px 20px; } }
+    .clients-label { text-align: center; margin-bottom: 32px; }
+    .clients-marquee {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+    .clients-marquee::before,
+    .clients-marquee::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 100px;
+      height: 100%;
+      z-index: 2;
+    }
+    .clients-marquee::before {
+      left: 0;
+      background: linear-gradient(to right, var(--bg), transparent);
+    }
+    .clients-marquee::after {
+      right: 0;
+      background: linear-gradient(to left, var(--bg), transparent);
+    }
+    .clients-track {
+      display: flex;
+      gap: 60px;
+      animation: marquee 30s linear infinite;
+    }
+    .clients-track:hover { animation-play-state: paused; }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .client-logo {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      padding: 0 20px;
+      filter: grayscale(100%);
+      opacity: 0.6;
+      transition: all 0.3s;
+    }
+    .client-logo:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+    .client-logo span {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
+    /* Team/Founder Section */
+    .team-section { padding: 70px 40px; background: var(--bg-warm); }
+    @media (max-width: 768px) { .team-section { padding: 48px 20px; } }
+    .team-grid {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+    .team-card {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 400px;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: all 0.3s;
+    }
+    .team-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+    }
+    .team-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--bg-dark);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 40px;
+      margin: 0 auto 24px;
+      overflow: hidden;
+    }
+    .team-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .team-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .team-card .role {
+      color: var(--accent-orange);
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .team-card .bio {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .team-social {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+    .team-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: all 0.3s;
+    }
+    .team-social a:hover {
+      background: var(--accent-orange);
+      color: white;
+    }
+
+    /* Blog Section */
+    .blog-section { padding: 70px 40px; background: var(--bg); }
+    @media (max-width: 768px) { .blog-section { padding: 48px 20px; } }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 40px;
+    }
+    @media (max-width: 900px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
+    .blog-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: all 0.3s;
+    }
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+    }
+    .blog-thumbnail {
+      width: 100%;
+      height: 180px;
+      background: linear-gradient(135deg, var(--bg-warm) 0%, var(--bg) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .blog-thumbnail svg {
+      width: 48px;
+      height: 48px;
+      color: var(--accent-orange);
+      opacity: 0.5;
+    }
+    .blog-content {
+      padding: 24px;
+    }
+    .blog-date {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .blog-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .blog-card h3 a {
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .blog-card h3 a:hover { color: var(--accent-orange); }
+    .blog-excerpt {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .blog-read-more {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-orange);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.3s;
+    }
+    .blog-read-more:hover { gap: 10px; }
+    .blog-cta {
+      text-align: center;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
@@ -1015,6 +1236,7 @@
     <a href="#quiz">Free Quiz</a>
     <a href="#cases">Our Work</a>
     <a href="#product">Zoieq</a>
+    <a href="#blog">Blog</a>
     <a href="https://cal.com/rajat-suri-jh33ia/15min" target="_blank" class="nav-cta">Book a Call</a>
   </div>
   <div class="nav-toggle" id="navToggle">
@@ -1110,6 +1332,34 @@
           <span style="background: var(--text-primary); color: var(--bg); padding: 5px 12px; border-radius: 100px; font-size: 12px; font-weight: 500;">Social media automation</span>
         </div>
         <p style="color: var(--text-primary); font-size: 15px; font-weight: 600;">No fluff. Just stuff that works.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trusted By / Client Logos -->
+<section class="clients-section">
+  <div class="container">
+    <p class="label clients-label fade-up">Trusted By</p>
+    <div class="clients-marquee fade-up stagger-1">
+      <div class="clients-track">
+        <div class="client-logo"><span>Times of Visa</span></div>
+        <div class="client-logo"><span>Primeway Logistics</span></div>
+        <div class="client-logo"><span>Greenfield Exports</span></div>
+        <div class="client-logo"><span>TripNest Holidays</span></div>
+        <div class="client-logo"><span>Vertex Interiors</span></div>
+        <div class="client-logo"><span>Meridian Group</span></div>
+        <div class="client-logo"><span>TechFlow Solutions</span></div>
+        <div class="client-logo"><span>GreenLeaf Organics</span></div>
+        <!-- Duplicate for seamless loop -->
+        <div class="client-logo"><span>Times of Visa</span></div>
+        <div class="client-logo"><span>Primeway Logistics</span></div>
+        <div class="client-logo"><span>Greenfield Exports</span></div>
+        <div class="client-logo"><span>TripNest Holidays</span></div>
+        <div class="client-logo"><span>Vertex Interiors</span></div>
+        <div class="client-logo"><span>Meridian Group</span></div>
+        <div class="client-logo"><span>TechFlow Solutions</span></div>
+        <div class="client-logo"><span>GreenLeaf Organics</span></div>
       </div>
     </div>
   </div>
@@ -1393,42 +1643,42 @@
       <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">REAL PROBLEMS. REAL SOLUTIONS.</h2>
     </div>
     <div class="cases-grid">
-      <div class="case-card fade-up stagger-1">
+      <a href="work/social-media-automation.html" class="case-card fade-up stagger-1" style="text-decoration: none;">
         <span class="case-tag">Social Media</span>
         <h3>Content & Posting Automation</h3>
         <p>Automated social media system for a services business. Content calendar, scheduled posts, auto-publishing to Instagram and LinkedIn. Approve once, system posts on time.</p>
         <div class="case-result">Consistent posting. Zero manual work.</div>
-      </div>
-      <div class="case-card fade-up stagger-2">
+      </a>
+      <a href="work/whatsapp-bot.html" class="case-card fade-up stagger-2" style="text-decoration: none;">
         <span class="case-tag">WhatsApp Bot</span>
         <h3>Booking Confirmation Automation</h3>
         <p>WhatsApp bot for a travel company that sends booking confirmations, payment receipts, and trip reminders automatically. Customers can reply to ask questions or request changes.</p>
         <div class="case-result">Instant confirmations. 24/7 response.</div>
-      </div>
-      <div class="case-card fade-up stagger-3">
+      </a>
+      <a href="work/lead-automation.html" class="case-card fade-up stagger-3" style="text-decoration: none;">
         <span class="case-tag">Lead Automation</span>
         <h3>Lead Capture & Routing System</h3>
         <p>Automated system for a B2B company that captures leads from website, WhatsApp, and social media. Every lead auto-assigned to the right sales rep. No manual sorting.</p>
         <div class="case-result">Zero leads lost. Instant assignment.</div>
-      </div>
-      <div class="case-card fade-up stagger-1">
+      </a>
+      <a href="work/visa-website.html" class="case-card fade-up stagger-1" style="text-decoration: none;">
         <span class="case-tag">Website</span>
         <h3>Visa Services Website</h3>
         <p>Fast, mobile-friendly website for a visa services business. Built for speed and search. Optimized for conversions with clear CTAs and trust signals.</p>
         <div class="case-result">90+ PageSpeed. Built for conversions.</div>
-      </div>
-      <div class="case-card fade-up stagger-2">
+      </a>
+      <a href="work/call-center-dashboard.html" class="case-card fade-up stagger-2" style="text-decoration: none;">
         <span class="case-tag">Dashboard</span>
         <h3>Call Center Performance Tracker</h3>
         <p>Multi-channel dashboard for a 50+ agent call center. Tracks calls, WhatsApp messages, and email tickets in one view. Managers see everything in real-time.</p>
         <div class="case-result">Real-time visibility across 3 channels.</div>
-      </div>
-      <div class="case-card fade-up stagger-3">
+      </a>
+      <a href="work/field-crm.html" class="case-card fade-up stagger-3" style="text-decoration: none;">
         <span class="case-tag">Field CRM</span>
         <h3>Field Sales Tracking System</h3>
         <p>PWA-based CRM for field teams with GPS check-ins, visit logs, lead capture, and manager dashboards. Works offline, syncs when connected.</p>
         <div class="case-result">Live in 3 days. No app store needed.</div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -1487,6 +1737,77 @@
         </div>
       </div>
 
+      <div class="review-card">
+        <div style="color: #f59e0b; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px;">★ ★ ★ ★ ★</div>
+        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">Our patient follow-ups were falling through the cracks. Serene Labs automated our reminder system — appointment confirmations, follow-up calls, and feedback collection. We've seen a 40% reduction in no-shows and saved 15 hours a week in admin time.</p>
+        <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px;">
+          <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Dr. Priya Sharma</div>
+          <div style="font-size: 12px; color: var(--text-muted);">Clinic Director, HealthFirst Medical</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div style="color: #f59e0b; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px;">★ ★ ★ ★ ★</div>
+        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">Managing inventory across 3 warehouses was a nightmare. We now get automated low-stock alerts, reorder reminders, and daily inventory summaries. The dashboard they built gives us real-time visibility we never had before. Game changer.</p>
+        <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px;">
+          <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Vikram Mehta</div>
+          <div style="font-size: 12px; color: var(--text-muted);">Operations Manager, FastTrack Logistics</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div style="color: #f59e0b; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px;">★ ★ ★ ★ ★</div>
+        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">We doubled our lead generation after Serene Labs set up our landing pages and automated our follow-up sequences. Every enquiry now gets an instant response, qualification questions, and booking link. Our sales team only talks to qualified leads now.</p>
+        <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px;">
+          <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Arun Kapoor</div>
+          <div style="font-size: 12px; color: var(--text-muted);">Founder, EduBridge Academy</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div style="color: #f59e0b; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px;">★ ★ ★ ★ ★</div>
+        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">Property enquiries were coming from 5 different portals. Serene Labs consolidated everything into one dashboard with automatic lead assignment. Our response time went from hours to minutes. We've closed 2x more deals since implementing this.</p>
+        <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px;">
+          <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Sunita Reddy</div>
+          <div style="font-size: 12px; color: var(--text-muted);">Sales Head, Horizon Realty</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div style="color: #f59e0b; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px;">★ ★ ★ ★ ★</div>
+        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">Our franchise owners needed a simple way to report daily sales. The app Serene Labs built works offline, syncs automatically, and gives us a consolidated view across all 12 locations. Setup took just 5 days. Best investment we made this year.</p>
+        <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px;">
+          <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Manish Jain</div>
+          <div style="font-size: 12px; color: var(--text-muted);">CEO, QuickBite Foods</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Team / Founder Section -->
+<section class="team-section" id="team">
+  <div class="container">
+    <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+      <span class="label fade-up">Who's Behind Serene Labs</span>
+      <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">MEET THE FOUNDER</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card fade-up stagger-2">
+        <div class="team-photo">RS</div>
+        <h3>Rajat Suri</h3>
+        <div class="role">Founder & Automation Architect</div>
+        <p class="bio">With 25+ years building systems for businesses, I started Serene Labs to bring enterprise-grade automation to growing companies — without the enterprise price tag. I believe every business deserves systems that work while they sleep.</p>
+        <div class="team-social">
+          <a href="https://linkedin.com/in/rajatsuri" target="_blank" aria-label="LinkedIn">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://twitter.com/rajatsuri" target="_blank" aria-label="Twitter">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1704,6 +2025,57 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- Blog / Insights Section -->
+<section class="blog-section" id="blog">
+  <div class="container">
+    <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+      <span class="label fade-up">Insights</span>
+      <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">FROM THE BLOG</h2>
+      <p class="fade-up stagger-2" style="color: var(--text-secondary); margin-top: 12px;">Practical tips on automation, productivity, and growing your business smarter.</p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card fade-up stagger-2">
+        <div class="blog-thumbnail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <div class="blog-content">
+          <div class="blog-date">January 15, 2026</div>
+          <h3><a href="blog/automate-repetitive-tasks.html">5 Repetitive Tasks Every Small Business Should Automate in 2026</a></h3>
+          <p class="blog-excerpt">Still manually sending follow-up emails? Copying data between spreadsheets? Here are the 5 tasks you should automate today.</p>
+          <a href="blog/automate-repetitive-tasks.html" class="blog-read-more">Read More <span>→</span></a>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up stagger-3">
+        <div class="blog-thumbnail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        </div>
+        <div class="blog-content">
+          <div class="blog-date">January 8, 2026</div>
+          <h3><a href="blog/whatsapp-automation-guide.html">WhatsApp Automation for Business: A Complete Guide</a></h3>
+          <p class="blog-excerpt">Learn how to automate booking confirmations, follow-ups, and customer support on WhatsApp without losing the personal touch.</p>
+          <a href="blog/whatsapp-automation-guide.html" class="blog-read-more">Read More <span>→</span></a>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up stagger-4">
+        <div class="blog-thumbnail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+        <div class="blog-content">
+          <div class="blog-date">December 28, 2025</div>
+          <h3><a href="blog/sales-team-case-study.html">How We Reduced Manual Work by 80% for a Sales Team</a></h3>
+          <p class="blog-excerpt">A real case study of how we helped a 15-person sales team eliminate spreadsheet chaos and focus on selling.</p>
+          <a href="blog/sales-team-case-study.html" class="blog-read-more">Read More <span>→</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="blog-cta fade-up stagger-5">
+      <a href="blog.html" class="btn btn-secondary">View All Articles</a>
     </div>
   </div>
 </section>
