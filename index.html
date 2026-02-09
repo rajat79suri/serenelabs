@@ -744,6 +744,57 @@
     .quiz-form button:hover {
       background: var(--accent-orange);
     }
+
+    /* FAQ Section */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: var(--bg-card);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .faq-question {
+      padding: 20px 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--text-primary);
+      transition: background 0.2s;
+    }
+    .faq-question:hover {
+      background: rgba(0,0,0,0.02);
+    }
+    .faq-question::after {
+      content: '+';
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--accent-orange);
+      transition: transform 0.3s;
+    }
+    .faq-item.active .faq-question::after {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+    }
+    .faq-answer p {
+      padding: 0 24px 20px;
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.7;
+    }
     .reviews-grid {
       display: flex;
       gap: 24px;
@@ -1567,6 +1618,74 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+      <span class="label fade-up">FAQ</span>
+      <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">COMMON QUESTIONS</h2>
+    </div>
+    <div class="faq-container fade-up stagger-2" style="margin-top: 40px;">
+
+      <div class="faq-item">
+        <div class="faq-question">How long does it take to set up an automation?</div>
+        <div class="faq-answer">
+          <p>Most automations go live in 3-7 days. Simple workflows (like lead capture or email follow-ups) can be done in 1-2 days. Complex systems with multiple integrations take 1-2 weeks.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Do I need any technical knowledge?</div>
+        <div class="faq-answer">
+          <p>No. We handle everything - setup, testing, and training. You just tell us what you want automated, and we build it. You'll get a simple dashboard to monitor everything.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What does it cost?</div>
+        <div class="faq-answer">
+          <p>It depends on the complexity and scope. Simple automations cost less, while complete systems with multiple integrations are a larger investment. We'll give you a clear quote after a quick discovery call - no hidden fees.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Will it work with my existing tools?</div>
+        <div class="faq-answer">
+          <p>Yes. We integrate with 500+ tools - Google Sheets, WhatsApp, CRMs, accounting software, payment gateways, and more. If your tools have an API, we can connect them.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What if something breaks?</div>
+        <div class="faq-answer">
+          <p>We monitor your automations and fix issues proactively. You get free support after launch, and we offer ongoing maintenance plans if you want continued monitoring and updates.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I see it before paying?</div>
+        <div class="faq-answer">
+          <p>Yes. We'll show you a demo or prototype before you commit. No surprises.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What's the ROI? Is it worth it?</div>
+        <div class="faq-answer">
+          <p>Most clients save 10-20 hours per week. The automation typically pays for itself in the first month through time saved and leads captured.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">I'm not sure what to automate. Can you help?</div>
+        <div class="faq-answer">
+          <p>Absolutely. Book a free 15-minute call. We'll look at your current processes and tell you exactly where automation will have the biggest impact.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- Contact -->
 <section id="contact">
@@ -1724,6 +1843,22 @@
     document.getElementById('quizResultTitle').textContent = title;
     document.getElementById('quizResultText').textContent = text;
   }
+
+  // FAQ Accordion
+  document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+      const item = question.parentElement;
+      const isActive = item.classList.contains('active');
+
+      // Close all others
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+
+      // Toggle current
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
+  });
 
   // Show thank you message for quiz completion and open Cal.com
   if (window.location.search.includes('quiz=complete')) {
