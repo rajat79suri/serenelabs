@@ -1,0 +1,8 @@
+# Robots.txt for Serene Labs
+# https://serenelabs.vercel.app
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://serenelabs.vercel.app/sitemap.xml

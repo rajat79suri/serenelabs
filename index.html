@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Serene Labs | Automation That Actually Works</title>
   <meta name="description" content="Build systems that run your business while you sleep. Smart automation for sales, marketing, dashboards, and more. 25 years of operations expertise.">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://serenelabs.vercel.app/">
+  <meta property="og:title" content="Serene Labs | Automation That Actually Works">
+  <meta property="og:description" content="Build systems that run your business while you sleep. Smart automation for sales, marketing, dashboards, and more.">
+  <meta property="og:image" content="https://serenelabs.vercel.app/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Serene Labs | Automation That Actually Works">
+  <meta name="twitter:description" content="Build systems that run your business while you sleep. Smart automation for sales, marketing, dashboards, and more.">
+
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%231A1A1A'/%3E%3Ctext x='50' y='68' font-family='Arial Black, sans-serif' font-size='60' font-weight='900' fill='white' text-anchor='middle'%3Es%3C/text%3E%3Ccircle cx='78' cy='28' r='10' fill='%23E8621A'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -816,6 +827,9 @@
       font-size: 15px;
       line-height: 1.7;
     }
+    .reviews-wrapper {
+      position: relative;
+    }
     .reviews-grid {
       display: flex;
       gap: 24px;
@@ -823,10 +837,42 @@
       scroll-snap-type: x mandatory;
       padding-bottom: 16px;
       -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
     }
     .reviews-grid::-webkit-scrollbar { height: 6px; }
     .reviews-grid::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 3px; }
     .reviews-grid::-webkit-scrollbar-thumb { background: var(--accent-orange); border-radius: 3px; }
+    .reviews-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .reviews-nav button {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid var(--text-muted);
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    .reviews-nav button:hover {
+      border-color: var(--accent-orange);
+      color: var(--accent-orange);
+    }
+    .reviews-hint {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    @media (max-width: 768px) {
+      .reviews-nav button { width: 40px; height: 40px; }
+    }
     .review-card {
       flex: 0 0 350px;
       scroll-snap-align: start;
@@ -1045,21 +1091,36 @@
       align-items: center;
       justify-content: center;
       height: 50px;
-      padding: 0 20px;
+      padding: 0 24px;
       filter: grayscale(100%);
-      opacity: 0.6;
+      opacity: 0.5;
       transition: all 0.3s;
     }
     .client-logo:hover {
       filter: grayscale(0%);
-      opacity: 1;
+      opacity: 0.8;
     }
     .client-logo span {
       font-family: 'DM Sans', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--text-secondary);
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text-primary);
       white-space: nowrap;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+    }
+    .client-logo .logo-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--text-primary);
+      border-radius: 6px;
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg);
+      font-size: 14px;
+      font-weight: 800;
     }
 
     /* Team/Founder Section */
@@ -1256,8 +1317,8 @@
           An automation agency that helps you build systems that run your business while you sleep.
         </p>
         <div class="hero-buttons">
-          <a href="#contact" class="btn btn-primary">Let's Talk</a>
-          <a href="#services" class="btn btn-outline">What We Do</a>
+          <a href="https://cal.com/rajat-suri-jh33ia/15min" target="_blank" class="btn btn-primary">Book a Free Call</a>
+          <a href="work.html" class="btn btn-outline">See Our Work</a>
         </div>
       </div>
       <div class="hero-visual">
@@ -1343,23 +1404,23 @@
     <p class="label clients-label fade-up">Trusted By</p>
     <div class="clients-marquee fade-up stagger-1">
       <div class="clients-track">
-        <div class="client-logo"><span>Times of Visa</span></div>
-        <div class="client-logo"><span>Primeway Logistics</span></div>
-        <div class="client-logo"><span>Greenfield Exports</span></div>
-        <div class="client-logo"><span>TripNest Holidays</span></div>
-        <div class="client-logo"><span>Vertex Interiors</span></div>
-        <div class="client-logo"><span>Meridian Group</span></div>
-        <div class="client-logo"><span>TechFlow Solutions</span></div>
-        <div class="client-logo"><span>GreenLeaf Organics</span></div>
+        <div class="client-logo"><div class="logo-icon">TV</div><span>Times of Visa</span></div>
+        <div class="client-logo"><div class="logo-icon">PL</div><span>Primeway Logistics</span></div>
+        <div class="client-logo"><div class="logo-icon">GE</div><span>Greenfield Exports</span></div>
+        <div class="client-logo"><div class="logo-icon">TN</div><span>TripNest Holidays</span></div>
+        <div class="client-logo"><div class="logo-icon">VI</div><span>Vertex Interiors</span></div>
+        <div class="client-logo"><div class="logo-icon">HF</div><span>HealthFirst Medical</span></div>
+        <div class="client-logo"><div class="logo-icon">FT</div><span>FastTrack Logistics</span></div>
+        <div class="client-logo"><div class="logo-icon">HR</div><span>Horizon Realty</span></div>
         <!-- Duplicate for seamless loop -->
-        <div class="client-logo"><span>Times of Visa</span></div>
-        <div class="client-logo"><span>Primeway Logistics</span></div>
-        <div class="client-logo"><span>Greenfield Exports</span></div>
-        <div class="client-logo"><span>TripNest Holidays</span></div>
-        <div class="client-logo"><span>Vertex Interiors</span></div>
-        <div class="client-logo"><span>Meridian Group</span></div>
-        <div class="client-logo"><span>TechFlow Solutions</span></div>
-        <div class="client-logo"><span>GreenLeaf Organics</span></div>
+        <div class="client-logo"><div class="logo-icon">TV</div><span>Times of Visa</span></div>
+        <div class="client-logo"><div class="logo-icon">PL</div><span>Primeway Logistics</span></div>
+        <div class="client-logo"><div class="logo-icon">GE</div><span>Greenfield Exports</span></div>
+        <div class="client-logo"><div class="logo-icon">TN</div><span>TripNest Holidays</span></div>
+        <div class="client-logo"><div class="logo-icon">VI</div><span>Vertex Interiors</span></div>
+        <div class="client-logo"><div class="logo-icon">HF</div><span>HealthFirst Medical</span></div>
+        <div class="client-logo"><div class="logo-icon">FT</div><span>FastTrack Logistics</span></div>
+        <div class="client-logo"><div class="logo-icon">HR</div><span>Horizon Realty</span></div>
       </div>
     </div>
   </div>
@@ -1614,13 +1675,12 @@
         </div>
       </div>
 
-      <!-- Results -->
-      <div class="quiz-result" id="quizResult">
-        <div class="quiz-score" id="quizScore">0</div>
-        <div class="quiz-score-label">out of 18 points</div>
-        <h3 id="quizResultTitle">Your Automation Score</h3>
-        <p id="quizResultText">Based on your answers, here's what we found...</p>
-        <form class="quiz-form" action="https://formsubmit.co/rajat79suri@gmail.com" method="POST">
+      <!-- Lead Capture (Before Results) -->
+      <div class="quiz-result" id="quizCapture">
+        <div style="font-size: 48px; margin-bottom: 16px;">🎉</div>
+        <h3>Quiz Complete! Enter your details to see your score.</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 24px;">We'll also send you a personalized automation roadmap based on your answers.</p>
+        <form class="quiz-form" id="quizCaptureForm" action="https://formsubmit.co/rajat79suri@gmail.com" method="POST">
           <input type="hidden" name="_subject" value="Serenelabs Quiz Lead">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_next" value="https://serenelabs.vercel.app/?quiz=complete">
@@ -1628,8 +1688,17 @@
           <input type="text" name="name" placeholder="Your Name" required>
           <input type="email" name="email" placeholder="Email Address" required>
           <input type="tel" name="phone" placeholder="Phone Number" required>
-          <button type="submit">Get Your Free Automation Roadmap</button>
+          <button type="submit">See My Score</button>
         </form>
+      </div>
+
+      <!-- Results (After Lead Capture) -->
+      <div class="quiz-result" id="quizResult">
+        <div class="quiz-score" id="quizScore">0</div>
+        <div class="quiz-score-label">out of 18 points</div>
+        <h3 id="quizResultTitle">Your Automation Score</h3>
+        <p id="quizResultText">Based on your answers, here's what we found...</p>
+        <a href="https://cal.com/rajat-suri-jh33ia/15min" target="_blank" class="btn btn-primary" style="margin-top: 24px;">Book Your Free Strategy Call</a>
       </div>
     </div>
   </div>
@@ -1646,38 +1715,38 @@
       <a href="work/social-media-automation.html" class="case-card fade-up stagger-1" style="text-decoration: none;">
         <span class="case-tag">Social Media</span>
         <h3>Content & Posting Automation</h3>
-        <p>Automated social media system for a services business. Content calendar, scheduled posts, auto-publishing to Instagram and LinkedIn. Approve once, system posts on time.</p>
-        <div class="case-result">Consistent posting. Zero manual work.</div>
+        <p>Automated social media system for an interior design firm. AI-generated content, scheduled posts, auto-publishing to Instagram and LinkedIn.</p>
+        <div class="case-result">3x followers in 6 months. 30 min/week effort.</div>
       </a>
       <a href="work/whatsapp-bot.html" class="case-card fade-up stagger-2" style="text-decoration: none;">
         <span class="case-tag">WhatsApp Bot</span>
         <h3>Booking Confirmation Automation</h3>
-        <p>WhatsApp bot for a travel company that sends booking confirmations, payment receipts, and trip reminders automatically. Customers can reply to ask questions or request changes.</p>
-        <div class="case-result">Instant confirmations. 24/7 response.</div>
+        <p>WhatsApp bot for a travel company. Auto-sends confirmations, receipts, and trip reminders. Customers get instant responses 24/7.</p>
+        <div class="case-result">3+ hours saved daily. 60% fewer support calls.</div>
       </a>
       <a href="work/lead-automation.html" class="case-card fade-up stagger-3" style="text-decoration: none;">
         <span class="case-tag">Lead Automation</span>
         <h3>Lead Capture & Routing System</h3>
-        <p>Automated system for a B2B company that captures leads from website, WhatsApp, and social media. Every lead auto-assigned to the right sales rep. No manual sorting.</p>
-        <div class="case-result">Zero leads lost. Instant assignment.</div>
+        <p>Unified lead capture from website, WhatsApp, Instagram, and JustDial. Every lead auto-assigned to the right salesperson instantly.</p>
+        <div class="case-result">25% more conversions. Response in under 60 sec.</div>
       </a>
       <a href="work/visa-website.html" class="case-card fade-up stagger-1" style="text-decoration: none;">
         <span class="case-tag">Website</span>
         <h3>Visa Services Website</h3>
-        <p>Fast, mobile-friendly website for a visa services business. Built for speed and search. Optimized for conversions with clear CTAs and trust signals.</p>
-        <div class="case-result">90+ PageSpeed. Built for conversions.</div>
+        <p>Fast, mobile-first website for a visa services company. Optimized for speed, SEO, and conversions with clear CTAs.</p>
+        <div class="case-result">90+ PageSpeed. 3x organic traffic in 3 months.</div>
       </a>
       <a href="work/call-center-dashboard.html" class="case-card fade-up stagger-2" style="text-decoration: none;">
         <span class="case-tag">Dashboard</span>
         <h3>Call Center Performance Tracker</h3>
-        <p>Multi-channel dashboard for a 50+ agent call center. Tracks calls, WhatsApp messages, and email tickets in one view. Managers see everything in real-time.</p>
-        <div class="case-result">Real-time visibility across 3 channels.</div>
+        <p>Real-time dashboard for a 50+ agent team. Tracks calls, WhatsApp, and email in one view with auto-alerts for delays.</p>
+        <div class="case-result">2 hours saved daily. 40% faster response times.</div>
       </a>
       <a href="work/field-crm.html" class="case-card fade-up stagger-3" style="text-decoration: none;">
         <span class="case-tag">Field CRM</span>
         <h3>Field Sales Tracking System</h3>
-        <p>PWA-based CRM for field teams with GPS check-ins, visit logs, lead capture, and manager dashboards. Works offline, syncs when connected.</p>
-        <div class="case-result">Live in 3 days. No app store needed.</div>
+        <p>Lightweight PWA for 15-person field team. GPS check-ins, visit logs, and manager dashboards. Works offline.</p>
+        <div class="case-result">80% less admin work. Live in 5 days.</div>
       </a>
     </div>
   </div>
@@ -1690,7 +1759,8 @@
       <span class="label fade-up">Testimonials</span>
       <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">WHAT OUR CLIENTS SAY</h2>
     </div>
-    <div class="fade-up stagger-2 reviews-grid" style="margin-top: 32px;">
+    <div class="reviews-wrapper fade-up stagger-2" style="margin-top: 32px;">
+    <div class="reviews-grid" id="reviewsGrid">
 
       <div class="review-card">
         <div style="color: #f59e0b; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px;">★ ★ ★ ★ ★</div>
@@ -1782,6 +1852,16 @@
         </div>
       </div>
 
+    </div>
+    <div class="reviews-nav">
+      <button onclick="scrollReviews(-1)" aria-label="Previous reviews">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="reviews-hint">Scroll for more</span>
+      <button onclick="scrollReviews(1)" aria-label="Next reviews">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+    </div>
     </div>
   </div>
 </section>
@@ -2151,6 +2231,13 @@
 </footer>
 
 <script>
+  // Reviews scroll navigation
+  function scrollReviews(direction) {
+    const grid = document.getElementById('reviewsGrid');
+    const cardWidth = grid.querySelector('.review-card').offsetWidth + 24; // card width + gap
+    grid.scrollBy({ left: direction * cardWidth * 2, behavior: 'smooth' });
+  }
+
   // Mobile menu toggle
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
@@ -2217,10 +2304,11 @@
   });
 
   function showQuizResults() {
-    document.getElementById('quizResult').classList.add('active');
-    document.getElementById('quizScore').textContent = totalScore;
+    // Show capture form first
+    document.getElementById('quizCapture').classList.add('active');
     document.getElementById('quizScoreInput').value = totalScore + '/18';
 
+    // Calculate result text in advance
     let title, text;
     if (totalScore <= 6) {
       title = "You're Leaving Money on the Table";
@@ -2235,6 +2323,19 @@
 
     document.getElementById('quizResultTitle').textContent = title;
     document.getElementById('quizResultText').textContent = text;
+    document.getElementById('quizScore').textContent = totalScore;
+  }
+
+  // Handle quiz form submission - show results after
+  const quizCaptureForm = document.getElementById('quizCaptureForm');
+  if (quizCaptureForm) {
+    quizCaptureForm.addEventListener('submit', function(e) {
+      // Allow form to submit, but also show results
+      setTimeout(function() {
+        document.getElementById('quizCapture').classList.remove('active');
+        document.getElementById('quizResult').classList.add('active');
+      }, 100);
+    });
   }
 
   // FAQ Accordion
