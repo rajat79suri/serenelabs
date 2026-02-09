@@ -97,6 +97,19 @@
       transition: color 0.3s;
     }
     .nav-links a:hover { color: var(--accent-orange); }
+    .nav-links a.nav-cta {
+      background: var(--accent-orange);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .nav-links a.nav-cta:hover {
+      background: #d45516;
+      color: white;
+      transform: translateY(-2px);
+    }
 
     /* Mobile Menu */
     .nav-toggle {
@@ -148,6 +161,14 @@
         border-bottom: 1px solid rgba(0,0,0,0.05);
       }
       .nav-links a:last-child { border-bottom: none; }
+      .nav-links a.nav-cta {
+        background: var(--accent-orange);
+        color: white;
+        margin: 16px 24px 0;
+        width: calc(100% - 48px);
+        border-radius: 8px;
+        border-bottom: none;
+      }
     }
 
     /* Sections */
@@ -994,7 +1015,7 @@
     <a href="#quiz">Free Quiz</a>
     <a href="#cases">Our Work</a>
     <a href="#product">Zoieq</a>
-    <a href="#contact">Contact</a>
+    <a href="https://cal.com/rajat-suri-jh33ia/15min" target="_blank" class="nav-cta">Book a Call</a>
   </div>
   <div class="nav-toggle" id="navToggle">
     <span></span>
