@@ -652,20 +652,27 @@
       font-size: 13px;
     }
 
-    /* Quiz Section */
-    .quiz-container {
-      max-width: 700px;
-      margin: 0 auto;
-      background: var(--bg-card);
-      border-radius: 24px;
-      padding: 48px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    /* Quiz Section - Combined with Reviews */
+    .quiz-reviews-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
     }
-    @media (max-width: 768px) { .quiz-container { padding: 32px 24px; } }
+    @media (max-width: 900px) {
+      .quiz-reviews-wrapper { grid-template-columns: 1fr; }
+    }
+    .quiz-container {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+    }
+    @media (max-width: 768px) { .quiz-container { padding: 24px 20px; } }
     .quiz-progress {
       display: flex;
-      gap: 8px;
-      margin-bottom: 32px;
+      gap: 6px;
+      margin-bottom: 24px;
     }
     .quiz-progress-bar {
       flex: 1;
@@ -690,24 +697,25 @@
       to { opacity: 1; transform: translateY(0); }
     }
     .quiz-question h3 {
-      font-size: 22px;
+      font-size: 18px;
       font-weight: 700;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
       color: var(--text-primary);
+      line-height: 1.4;
     }
     .quiz-options {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 8px;
     }
     .quiz-option {
-      padding: 16px 20px;
+      padding: 12px 16px;
       background: var(--bg);
       border: 2px solid rgba(0,0,0,0.08);
-      border-radius: 12px;
+      border-radius: 10px;
       cursor: pointer;
       transition: all 0.2s ease;
-      font-size: 15px;
+      font-size: 14px;
       color: var(--text-secondary);
     }
     .quiz-option:hover {
@@ -827,61 +835,58 @@
       font-size: 15px;
       line-height: 1.7;
     }
-    .reviews-wrapper {
-      position: relative;
-    }
-    .reviews-grid {
-      display: flex;
-      gap: 24px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding-bottom: 16px;
-      -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
-    }
-    .reviews-grid::-webkit-scrollbar { height: 6px; }
-    .reviews-grid::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 3px; }
-    .reviews-grid::-webkit-scrollbar-thumb { background: var(--accent-orange); border-radius: 3px; }
-    .reviews-nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 16px;
-      margin-top: 24px;
-    }
-    .reviews-nav button {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 2px solid var(--text-muted);
-      background: transparent;
-      color: var(--text-secondary);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s;
-    }
-    .reviews-nav button:hover {
-      border-color: var(--accent-orange);
-      color: var(--accent-orange);
-    }
-    .reviews-hint {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-    @media (max-width: 768px) {
-      .reviews-nav button { width: 40px; height: 40px; }
-    }
-    .review-card {
-      flex: 0 0 350px;
-      scroll-snap-align: start;
+    .reviews-sidebar {
       background: var(--bg-card);
-      border-radius: 16px;
-      padding: 28px;
+      border-radius: 20px;
+      padding: 24px;
+      max-height: 520px;
+      overflow-y: auto;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+    }
+    .reviews-sidebar::-webkit-scrollbar { width: 6px; }
+    .reviews-sidebar::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 3px; }
+    .reviews-sidebar::-webkit-scrollbar-thumb { background: var(--accent-orange); border-radius: 3px; }
+    .reviews-sidebar-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+    .reviews-grid-compact {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .review-card-compact {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 16px;
       border: 1px solid rgba(0,0,0,0.04);
     }
-    @media (max-width: 600px) { .review-card { flex: 0 0 300px; } }
+    .review-card-compact .stars {
+      color: #f59e0b;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .review-card-compact p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .review-card-compact .author {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .review-card-compact .role {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    @media (max-width: 900px) {
+      .reviews-sidebar { max-height: 400px; }
+    }
     .case-card {
       display: block;
       background: var(--bg-card);
@@ -1511,21 +1516,18 @@
   </div>
 </section>
 
-<!-- Quiz Section -->
+<!-- Quiz + Reviews Section -->
 <section id="quiz" style="background: var(--bg-warm);">
   <div class="container">
-    <div style="text-align: center; max-width: 600px; margin: 0 auto 40px;">
-      <span class="label fade-up">Free Assessment</span>
-      <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">DO YOU NEED AUTOMATION?</h2>
-      <p class="fade-up stagger-2" style="color: var(--text-secondary); margin-top: 16px;">Take this 2-minute quiz to find out how much time and money you could save.</p>
-      <div class="quiz-social-proof fade-up stagger-3">
-        <span>"Saved us 3 hours every day"</span>
-        <span>"Best decision we made"</span>
-        <span>"ROI in 2 weeks"</span>
-      </div>
-    </div>
-
-    <div class="quiz-container fade-up stagger-3">
+    <div class="quiz-reviews-wrapper">
+      <!-- Left: Quiz -->
+      <div>
+        <div style="margin-bottom: 24px;">
+          <span class="label fade-up">Free Assessment</span>
+          <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px; font-size: clamp(28px, 5vw, 36px);">DO YOU NEED AUTOMATION?</h2>
+          <p class="fade-up stagger-2" style="color: var(--text-secondary); margin-top: 12px; font-size: 15px;">2-minute quiz to see how much you could save.</p>
+        </div>
+        <div class="quiz-container fade-up stagger-3">
       <!-- Progress Bar -->
       <div class="quiz-progress" id="quizProgress">
         <div class="quiz-progress-bar"></div>
@@ -1627,6 +1629,51 @@
         <p id="quizResultText">Based on your answers, here's what we found...</p>
         <a href="https://cal.com/rajat-suri-jh33ia/15min" target="_blank" class="btn btn-primary" style="margin-top: 24px;">Book Your Free Strategy Call</a>
       </div>
+        </div>
+      </div>
+
+      <!-- Right: Reviews -->
+      <div class="reviews-sidebar fade-up stagger-4">
+        <div class="reviews-sidebar-title">WHAT CLIENTS SAY</div>
+        <div class="reviews-grid-compact">
+          <div class="review-card-compact">
+            <div class="stars">★★★★★</div>
+            <p>"We stopped losing leads the same week it went live. The auto-assignment system is exactly what we needed."</p>
+            <div class="author">Ankur Sethi</div>
+            <div class="role">Director, Primeway Logistics</div>
+          </div>
+          <div class="review-card-compact">
+            <div class="stars">★★★★★</div>
+            <p>"Saved us hours every day. The WhatsApp bot sends confirmations and reminders automatically. Customers love it."</p>
+            <div class="author">Rohit Bansal</div>
+            <div class="role">Co-founder, TripNest Holidays</div>
+          </div>
+          <div class="review-card-compact">
+            <div class="stars">★★★★★</div>
+            <p>"We've been posting consistently for 3 months now. First time ever. The automation just works."</p>
+            <div class="author">Neha Agarwal</div>
+            <div class="role">Marketing, Vertex Interiors</div>
+          </div>
+          <div class="review-card-compact">
+            <div class="stars">★★★★★</div>
+            <p>"90+ PageSpeed score and organic leads within weeks. They delivered exactly what they promised."</p>
+            <div class="author">Sushant Mahajan</div>
+            <div class="role">Times of Visa</div>
+          </div>
+          <div class="review-card-compact">
+            <div class="stars">★★★★★</div>
+            <p>"40% reduction in no-shows after automating our reminder system. 15 hours saved every week."</p>
+            <div class="author">Dr. Priya Sharma</div>
+            <div class="role">HealthFirst Medical</div>
+          </div>
+          <div class="review-card-compact">
+            <div class="stars">★★★★★</div>
+            <p>"Property enquiries from 5 portals, one dashboard. Response time went from hours to minutes."</p>
+            <div class="author">Sunita Reddy</div>
+            <div class="role">Sales Head, Horizon Realty</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1678,121 +1725,6 @@
     </div>
   </div>
 </section>
-
-<!-- Reviews -->
-<section id="reviews" style="background: var(--bg);">
-  <div class="container">
-    <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-      <span class="label fade-up">Testimonials</span>
-      <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">WHAT OUR CLIENTS SAY</h2>
-    </div>
-    <div class="reviews-wrapper fade-up stagger-2" style="margin-top: 32px;">
-    <div class="reviews-grid" id="reviewsGrid">
-
-      <div class="review-card">
-        <div style="color: #f59e0b; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px;">★ ★ ★ ★ ★</div>
-        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">We needed a website that loads fast, ranks well, and looks professional. Serene Labs delivered all three. The site scored 90+ on Google PageSpeed and we started getting organic leads within weeks. They also set up our content automation so we're posting regularly without anyone manually uploading anything.</p>
-        <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px;">
-          <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Sushant Mahajan</div>
-          <div style="font-size: 12px; color: var(--text-muted);">Content Manager, Times of Visa</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div style="color: #f59e0b; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px;">★ ★ ★ ★ ★</div>
-        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">We had leads coming in from our website, WhatsApp, and Instagram but no system to track them. Serene Labs built us a lead capture system that auto-assigns every enquiry to the right salesperson. We stopped losing leads the same week it went live.</p>
-        <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px;">
-          <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Ankur Sethi</div>
-          <div style="font-size: 12px; color: var(--text-muted);">Director, Primeway Logistics</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div style="color: #f59e0b; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px;">★ ★ ★ ★ ★</div>
-        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">Our sales team was spending the first hour every morning updating spreadsheets. Now we get a clean report in our inbox at 8 AM with all the numbers we need. No manual work. Serene Labs understood what we needed and delivered it fast.</p>
-        <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px;">
-          <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Meera Krishnan</div>
-          <div style="font-size: 12px; color: var(--text-muted);">Operations Head, Greenfield Exports</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div style="color: #f59e0b; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px;">★ ★ ★ ★ ★</div>
-        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">We were sending booking confirmations manually on WhatsApp. It was a mess. Serene Labs set up a bot that sends confirmations, payment receipts, and reminders automatically. Customers love it. We love it more. Saved us hours every day.</p>
-        <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px;">
-          <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Rohit Bansal</div>
-          <div style="font-size: 12px; color: var(--text-muted);">Co-founder, TripNest Holidays</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div style="color: #f59e0b; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px;">★ ★ ★ ★ ★</div>
-        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">We knew we needed to post on social media regularly but never had the time. Serene Labs set up a system where we approve content once and it posts automatically on Instagram and LinkedIn. We've been consistent for 3 months now. First time ever.</p>
-        <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px;">
-          <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Neha Agarwal</div>
-          <div style="font-size: 12px; color: var(--text-muted);">Marketing Manager, Vertex Interiors</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div style="color: #f59e0b; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px;">★ ★ ★ ★ ★</div>
-        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">Our patient follow-ups were falling through the cracks. Serene Labs automated our reminder system — appointment confirmations, follow-up calls, and feedback collection. We've seen a 40% reduction in no-shows and saved 15 hours a week in admin time.</p>
-        <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px;">
-          <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Dr. Priya Sharma</div>
-          <div style="font-size: 12px; color: var(--text-muted);">Clinic Director, HealthFirst Medical</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div style="color: #f59e0b; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px;">★ ★ ★ ★ ★</div>
-        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">Managing inventory across 3 warehouses was a nightmare. We now get automated low-stock alerts, reorder reminders, and daily inventory summaries. The dashboard they built gives us real-time visibility we never had before. Game changer.</p>
-        <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px;">
-          <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Vikram Mehta</div>
-          <div style="font-size: 12px; color: var(--text-muted);">Operations Manager, FastTrack Logistics</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div style="color: #f59e0b; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px;">★ ★ ★ ★ ★</div>
-        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">We doubled our lead generation after Serene Labs set up our landing pages and automated our follow-up sequences. Every enquiry now gets an instant response, qualification questions, and booking link. Our sales team only talks to qualified leads now.</p>
-        <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px;">
-          <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Arun Kapoor</div>
-          <div style="font-size: 12px; color: var(--text-muted);">Founder, EduBridge Academy</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div style="color: #f59e0b; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px;">★ ★ ★ ★ ★</div>
-        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">Property enquiries were coming from 5 different portals. Serene Labs consolidated everything into one dashboard with automatic lead assignment. Our response time went from hours to minutes. We've closed 2x more deals since implementing this.</p>
-        <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px;">
-          <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Sunita Reddy</div>
-          <div style="font-size: 12px; color: var(--text-muted);">Sales Head, Horizon Realty</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div style="color: #f59e0b; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px;">★ ★ ★ ★ ★</div>
-        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">Our franchise owners needed a simple way to report daily sales. The app Serene Labs built works offline, syncs automatically, and gives us a consolidated view across all 12 locations. Setup took just 5 days. Best investment we made this year.</p>
-        <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px;">
-          <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Manish Jain</div>
-          <div style="font-size: 12px; color: var(--text-muted);">CEO, QuickBite Foods</div>
-        </div>
-      </div>
-
-    </div>
-    <div class="reviews-nav">
-      <button onclick="scrollReviews(-1)" aria-label="Previous reviews">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <span class="reviews-hint">Scroll for more</span>
-      <button onclick="scrollReviews(1)" aria-label="Next reviews">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
-      </button>
-    </div>
-    </div>
-  </div>
-</section>
-
 
 <!-- Product: Zoieq -->
 <section id="product">
@@ -2133,13 +2065,6 @@
 </footer>
 
 <script>
-  // Reviews scroll navigation
-  function scrollReviews(direction) {
-    const grid = document.getElementById('reviewsGrid');
-    const cardWidth = grid.querySelector('.review-card').offsetWidth + 24; // card width + gap
-    grid.scrollBy({ left: direction * cardWidth * 2, behavior: 'smooth' });
-  }
-
   // Mobile menu toggle
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
