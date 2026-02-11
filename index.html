@@ -835,57 +835,111 @@
       font-size: 15px;
       line-height: 1.7;
     }
-    .reviews-sidebar {
+    .reviews-panel {
       background: var(--bg-card);
       border-radius: 20px;
       padding: 24px;
-      max-height: 520px;
-      overflow-y: auto;
       box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
     }
-    .reviews-sidebar::-webkit-scrollbar { width: 6px; }
-    .reviews-sidebar::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 3px; }
-    .reviews-sidebar::-webkit-scrollbar-thumb { background: var(--accent-orange); border-radius: 3px; }
-    .reviews-sidebar-title {
+    .reviews-panel-title {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 20px;
       margin-bottom: 16px;
       color: var(--text-primary);
     }
-    .reviews-grid-compact {
+    .reviews-carousel {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+    .reviews-track {
+      display: flex;
+      transition: transform 0.4s ease;
+    }
+    .reviews-page {
+      flex: 0 0 100%;
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 12px;
     }
     .review-card-compact {
       background: var(--bg);
-      border-radius: 12px;
-      padding: 16px;
+      border-radius: 10px;
+      padding: 14px;
       border: 1px solid rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
     }
     .review-card-compact .stars {
       color: #f59e0b;
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: 1px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .review-card-compact p {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-secondary);
-      line-height: 1.6;
-      margin-bottom: 12px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+      flex: 1;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
     }
     .review-card-compact .author {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
       color: var(--text-primary);
     }
     .review-card-compact .role {
-      font-size: 11px;
+      font-size: 10px;
       color: var(--text-muted);
     }
+    .reviews-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .reviews-nav button {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid var(--text-muted);
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    .reviews-nav button:hover {
+      border-color: var(--accent-orange);
+      color: var(--accent-orange);
+    }
+    .reviews-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .reviews-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+    .reviews-dot.active {
+      background: var(--accent-orange);
+    }
     @media (max-width: 900px) {
-      .reviews-sidebar { max-height: 400px; }
+      .reviews-page { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .review-card-compact p { -webkit-line-clamp: 3; }
     }
     .case-card {
       display: block;
@@ -1633,45 +1687,105 @@
       </div>
 
       <!-- Right: Reviews -->
-      <div class="reviews-sidebar fade-up stagger-4">
-        <div class="reviews-sidebar-title">WHAT CLIENTS SAY</div>
-        <div class="reviews-grid-compact">
-          <div class="review-card-compact">
-            <div class="stars">★★★★★</div>
-            <p>"We stopped losing leads the same week it went live. The auto-assignment system is exactly what we needed."</p>
-            <div class="author">Ankur Sethi</div>
-            <div class="role">Director, Primeway Logistics</div>
+      <div class="reviews-panel fade-up stagger-4">
+        <div class="reviews-panel-title">WHAT CLIENTS SAY</div>
+        <div class="reviews-carousel">
+          <div class="reviews-track" id="reviewsTrack">
+            <!-- Page 1 -->
+            <div class="reviews-page">
+              <div class="review-card-compact">
+                <div class="stars">★★★★★</div>
+                <p>"We stopped losing leads the same week it went live. The auto-assignment system is exactly what we needed."</p>
+                <div class="author">Ankur Sethi</div>
+                <div class="role">Director, Primeway Logistics</div>
+              </div>
+              <div class="review-card-compact">
+                <div class="stars">★★★★★</div>
+                <p>"Saved us hours every day. The WhatsApp bot sends confirmations and reminders automatically."</p>
+                <div class="author">Rohit Bansal</div>
+                <div class="role">Co-founder, TripNest Holidays</div>
+              </div>
+              <div class="review-card-compact">
+                <div class="stars">★★★★★</div>
+                <p>"We've been posting consistently for 3 months now. First time ever. The automation just works."</p>
+                <div class="author">Neha Agarwal</div>
+                <div class="role">Marketing, Vertex Interiors</div>
+              </div>
+              <div class="review-card-compact">
+                <div class="stars">★★★★★</div>
+                <p>"90+ PageSpeed score and organic leads within weeks. They delivered exactly what they promised."</p>
+                <div class="author">Sushant Mahajan</div>
+                <div class="role">Times of Visa</div>
+              </div>
+            </div>
+            <!-- Page 2 -->
+            <div class="reviews-page">
+              <div class="review-card-compact">
+                <div class="stars">★★★★★</div>
+                <p>"40% reduction in no-shows after automating our reminder system. 15 hours saved every week."</p>
+                <div class="author">Dr. Priya Sharma</div>
+                <div class="role">HealthFirst Medical</div>
+              </div>
+              <div class="review-card-compact">
+                <div class="stars">★★★★★</div>
+                <p>"Property enquiries from 5 portals, one dashboard. Response time went from hours to minutes."</p>
+                <div class="author">Sunita Reddy</div>
+                <div class="role">Sales Head, Horizon Realty</div>
+              </div>
+              <div class="review-card-compact">
+                <div class="stars">★★★★★</div>
+                <p>"Our sales team was spending hours on spreadsheets. Now we get a clean report at 8 AM daily."</p>
+                <div class="author">Meera Krishnan</div>
+                <div class="role">Ops Head, Greenfield Exports</div>
+              </div>
+              <div class="review-card-compact">
+                <div class="stars">★★★★★</div>
+                <p>"Managing inventory across 3 warehouses was chaos. Now we get real-time alerts and visibility."</p>
+                <div class="author">Vikram Mehta</div>
+                <div class="role">FastTrack Logistics</div>
+              </div>
+            </div>
+            <!-- Page 3 -->
+            <div class="reviews-page">
+              <div class="review-card-compact">
+                <div class="stars">★★★★★</div>
+                <p>"We doubled our lead generation. Every enquiry now gets instant response and qualification."</p>
+                <div class="author">Arun Kapoor</div>
+                <div class="role">Founder, EduBridge Academy</div>
+              </div>
+              <div class="review-card-compact">
+                <div class="stars">★★★★★</div>
+                <p>"The franchise reporting app works offline and syncs automatically. Setup took just 5 days."</p>
+                <div class="author">Manish Jain</div>
+                <div class="role">CEO, QuickBite Foods</div>
+              </div>
+              <div class="review-card-compact">
+                <div class="stars">★★★★★</div>
+                <p>"Our field team's admin work dropped by 80%. The GPS check-in system is simple and effective."</p>
+                <div class="author">Ravi Menon</div>
+                <div class="role">Sales Director, Metro Pharma</div>
+              </div>
+              <div class="review-card-compact">
+                <div class="stars">★★★★★</div>
+                <p>"Best investment we made this year. The automation pays for itself every month."</p>
+                <div class="author">Priya Nair</div>
+                <div class="role">Founder, Urban Wellness</div>
+              </div>
+            </div>
           </div>
-          <div class="review-card-compact">
-            <div class="stars">★★★★★</div>
-            <p>"Saved us hours every day. The WhatsApp bot sends confirmations and reminders automatically. Customers love it."</p>
-            <div class="author">Rohit Bansal</div>
-            <div class="role">Co-founder, TripNest Holidays</div>
+        </div>
+        <div class="reviews-nav">
+          <button onclick="scrollReviewsPage(-1)" aria-label="Previous">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 14l-5-5 5-5"/></svg>
+          </button>
+          <div class="reviews-dots">
+            <div class="reviews-dot active" data-page="0"></div>
+            <div class="reviews-dot" data-page="1"></div>
+            <div class="reviews-dot" data-page="2"></div>
           </div>
-          <div class="review-card-compact">
-            <div class="stars">★★★★★</div>
-            <p>"We've been posting consistently for 3 months now. First time ever. The automation just works."</p>
-            <div class="author">Neha Agarwal</div>
-            <div class="role">Marketing, Vertex Interiors</div>
-          </div>
-          <div class="review-card-compact">
-            <div class="stars">★★★★★</div>
-            <p>"90+ PageSpeed score and organic leads within weeks. They delivered exactly what they promised."</p>
-            <div class="author">Sushant Mahajan</div>
-            <div class="role">Times of Visa</div>
-          </div>
-          <div class="review-card-compact">
-            <div class="stars">★★★★★</div>
-            <p>"40% reduction in no-shows after automating our reminder system. 15 hours saved every week."</p>
-            <div class="author">Dr. Priya Sharma</div>
-            <div class="role">HealthFirst Medical</div>
-          </div>
-          <div class="review-card-compact">
-            <div class="stars">★★★★★</div>
-            <p>"Property enquiries from 5 portals, one dashboard. Response time went from hours to minutes."</p>
-            <div class="author">Sunita Reddy</div>
-            <div class="role">Sales Head, Horizon Realty</div>
-          </div>
+          <button onclick="scrollReviewsPage(1)" aria-label="Next">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 2l5 5-5 5"/></svg>
+          </button>
         </div>
       </div>
     </div>
@@ -2065,6 +2179,36 @@
 </footer>
 
 <script>
+  // Reviews carousel navigation
+  let currentReviewPage = 0;
+  const totalReviewPages = 3;
+
+  function scrollReviewsPage(direction) {
+    currentReviewPage += direction;
+    if (currentReviewPage < 0) currentReviewPage = totalReviewPages - 1;
+    if (currentReviewPage >= totalReviewPages) currentReviewPage = 0;
+    updateReviewsCarousel();
+  }
+
+  function updateReviewsCarousel() {
+    const track = document.getElementById('reviewsTrack');
+    if (track) {
+      track.style.transform = `translateX(-${currentReviewPage * 100}%)`;
+    }
+    // Update dots
+    document.querySelectorAll('.reviews-dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentReviewPage);
+    });
+  }
+
+  // Click on dots to navigate
+  document.querySelectorAll('.reviews-dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+      currentReviewPage = parseInt(dot.dataset.page);
+      updateReviewsCarousel();
+    });
+  });
+
   // Mobile menu toggle
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
