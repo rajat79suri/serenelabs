@@ -122,6 +122,133 @@
       transform: translateY(-2px);
     }
 
+    /* Products Dropdown */
+    .nav-dropdown {
+      position: relative;
+    }
+    .nav-dropdown-trigger {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.3s;
+      user-select: none;
+      background: none;
+      border: none;
+      font-family: inherit;
+      padding: 0;
+    }
+    .nav-dropdown-trigger:hover { color: var(--accent-orange); }
+    .nav-dropdown-trigger svg {
+      width: 12px;
+      height: 12px;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      fill: currentColor;
+    }
+    .nav-dropdown:hover .nav-dropdown-trigger svg,
+    .nav-dropdown.active .nav-dropdown-trigger svg {
+      transform: rotate(180deg);
+    }
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 16px);
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      min-width: 280px;
+      background: var(--bg-card);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 14px;
+      padding: 8px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.04);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                  visibility 0.25s;
+    }
+    .nav-dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      width: 14px;
+      height: 14px;
+      background: var(--bg-card);
+      border-top: 1px solid rgba(0,0,0,0.08);
+      border-left: 1px solid rgba(0,0,0,0.08);
+      border-radius: 2px;
+    }
+    /* Invisible hover bridge between trigger and dropdown */
+    .nav-dropdown-menu::after {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 0;
+      right: 0;
+      height: 20px;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown.active .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-dropdown-item:hover {
+      background: var(--bg-warm);
+      transform: translateX(2px);
+    }
+    .nav-dropdown-item + .nav-dropdown-item {
+      border-top: 1px solid rgba(0,0,0,0.04);
+    }
+    .nav-dropdown-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .nav-dropdown-icon.zoieq-icon {
+      background: linear-gradient(135deg, #E8621A, #C62828);
+    }
+    .nav-dropdown-icon.zivo-icon {
+      background: linear-gradient(135deg, #5E6B4A, #3d4a2e);
+    }
+    .nav-dropdown-text h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-primary);
+      letter-spacing: 0.5px;
+    }
+    .nav-dropdown-text p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+      font-weight: 400;
+    }
+    .nav-dropdown-item:hover .nav-dropdown-text h4 {
+      color: var(--accent-orange);
+    }
+
     /* Mobile Menu */
     .nav-toggle {
       display: none;
@@ -172,6 +299,63 @@
         border-bottom: 1px solid rgba(0,0,0,0.05);
       }
       .nav-links a:last-child { border-bottom: none; }
+
+      /* Mobile dropdown overrides */
+      .nav-dropdown {
+        width: 100%;
+        text-align: center;
+      }
+      .nav-dropdown-trigger {
+        font-size: 18px;
+        font-weight: 600;
+        color: #1A1A1A;
+        padding: 16px 24px;
+        width: 100%;
+        justify-content: center;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+      }
+      .nav-dropdown-menu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        min-width: unset;
+        width: 100%;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        background: rgba(0,0,0,0.02);
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .nav-dropdown-menu::before { display: none; }
+      .nav-dropdown.active .nav-dropdown-menu {
+        max-height: 200px;
+        transform: none;
+      }
+      .nav-dropdown:hover .nav-dropdown-menu {
+        max-height: 0;
+        transform: none;
+      }
+      .nav-dropdown.active .nav-dropdown-menu {
+        max-height: 200px;
+      }
+      .nav-dropdown-item {
+        justify-content: center;
+        padding: 12px 24px;
+        border-radius: 0;
+      }
+      .nav-dropdown-item:hover {
+        transform: none;
+        background: rgba(0,0,0,0.03);
+      }
+      .nav-dropdown-item + .nav-dropdown-item {
+        border-top: 1px solid rgba(0,0,0,0.04);
+      }
+
       .nav-links a.nav-cta {
         background: var(--accent-orange);
         color: white;
@@ -1277,7 +1461,32 @@
     <a href="#services">Services</a>
     <a href="#quiz">Free Quiz</a>
     <a href="#cases">Our Work</a>
-    <a href="#product">Zoieq</a>
+    <div class="nav-dropdown" id="navDropdown">
+      <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+        Products
+        <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M2 4.5L6 8.5L10 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </button>
+      <div class="nav-dropdown-menu" role="menu">
+        <a href="file:///C:/Users/rajat/zoieq-pitch/index.html" target="_blank" class="nav-dropdown-item" role="menuitem">
+          <div class="nav-dropdown-icon zoieq-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="nav-dropdown-text">
+            <h4>Zoieq</h4>
+            <p>Field Sales CRM & Tracker</p>
+          </div>
+        </a>
+        <a href="https://zivo-chatbot.vercel.app/" target="_blank" class="nav-dropdown-item" role="menuitem">
+          <div class="nav-dropdown-icon zivo-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.862 9.862 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="nav-dropdown-text">
+            <h4>Zivo</h4>
+            <p>AI-Powered Chatbot</p>
+          </div>
+        </a>
+      </div>
+    </div>
     <a href="#blog">Blog</a>
     <a href="https://cal.com/rajat-suri-jh33ia/15min" target="_blank" class="nav-cta">Book a Call</a>
   </div>
@@ -2228,11 +2437,37 @@
     });
   });
 
+  // Products dropdown (mobile tap toggle)
+  const navDropdown = document.getElementById('navDropdown');
+  const dropdownTrigger = navDropdown.querySelector('.nav-dropdown-trigger');
+
+  dropdownTrigger.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    // Only toggle on mobile (desktop uses CSS :hover)
+    if (window.innerWidth <= 768) {
+      navDropdown.classList.toggle('active');
+      this.setAttribute('aria-expanded', navDropdown.classList.contains('active'));
+    }
+  });
+
+  // Close dropdown items should NOT close mobile menu (they open in new tabs)
+  document.querySelectorAll('.nav-dropdown-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+  });
+
   // Close menu when clicking outside
   document.addEventListener('click', function(e) {
     if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
       navToggle.classList.remove('active');
       navLinks.classList.remove('active');
+    }
+    // Close dropdown if clicking outside it
+    if (!navDropdown.contains(e.target)) {
+      navDropdown.classList.remove('active');
+      dropdownTrigger.setAttribute('aria-expanded', 'false');
     }
   });
 
