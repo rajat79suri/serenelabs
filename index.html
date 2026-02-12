@@ -1768,6 +1768,78 @@
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
     }
     @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; gap: 24px; } }
+
+    /* Cal.com Modal */
+    .cal-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+    .cal-modal-overlay.active { opacity: 1; visibility: visible; }
+    .cal-modal {
+      position: relative;
+      width: 90%;
+      max-width: 520px;
+      height: 85vh;
+      max-height: 700px;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+      transform: translateY(20px) scale(0.97);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cal-modal-overlay.active .cal-modal {
+      transform: translateY(0) scale(1);
+    }
+    .cal-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0,0,0,0.06);
+      color: #333;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: background 0.2s;
+    }
+    .cal-modal-close:hover { background: rgba(0,0,0,0.12); }
+    .cal-modal iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    @media (max-width: 600px) {
+      .cal-modal {
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        max-height: none;
+        border-radius: 0;
+      }
+      .cal-modal-close {
+        top: 8px;
+        right: 8px;
+        width: 40px;
+        height: 40px;
+        background: rgba(0,0,0,0.08);
+      }
+    }
   </style>
 </head>
 <body>
@@ -2617,6 +2689,14 @@
   </div>
 </footer>
 
+<!-- Cal.com Modal -->
+<div class="cal-modal-overlay" id="calModal">
+  <div class="cal-modal">
+    <button class="cal-modal-close" id="calClose" aria-label="Close">&times;</button>
+    <iframe id="calIframe" loading="lazy"></iframe>
+  </div>
+</div>
+
 <script>
   // Reviews carousel navigation
   let currentReviewPage = 0;
@@ -2790,6 +2870,24 @@
     });
   });
 
+  // Cal.com modal functions (defined early so quiz/form handlers can use them)
+  const calModal = document.getElementById('calModal');
+  const calIframe = document.getElementById('calIframe');
+  const calClose = document.getElementById('calClose');
+  const CAL_URL = 'https://cal.com/rajat-suri-jh33ia/15min?embed=true&layout=month_view&hideBranding=true';
+
+  function openCalModal(e) {
+    if (e) e.preventDefault();
+    calIframe.src = CAL_URL;
+    calModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCalModal() {
+    calModal.classList.remove('active');
+    document.body.style.overflow = '';
+    setTimeout(function() { calIframe.src = ''; }, 300);
+  }
+
   // Show thank you message for quiz completion and open Cal.com
   if (window.location.search.includes('quiz=complete')) {
     const toast = document.createElement('div');
@@ -2803,7 +2901,7 @@
     setTimeout(() => toast.remove(), 8000);
     history.replaceState(null, '', window.location.pathname);
     // Open Cal.com
-    window.open('https://cal.com/rajat-suri-jh33ia/15min', '_blank', 'width=600,height=700');
+    openCalModal();
   }
 
   // Show thank you message and open Cal.com if form was submitted
@@ -2820,7 +2918,7 @@
     // Clean URL
     history.replaceState(null, '', window.location.pathname);
     // Open Cal.com in popup
-    window.open('https://cal.com/rajat-suri-jh33ia/15min', '_blank', 'width=600,height=700');
+    openCalModal();
   }
 
   // Scroll animation observer
@@ -2872,6 +2970,21 @@
     arrow.className = 'case-arrow';
     arrow.innerHTML = 'View project <span>&rarr;</span>';
     card.appendChild(arrow);
+  });
+
+  // Intercept all Cal.com links (modal functions defined earlier in script)
+  document.querySelectorAll('a[href*="cal.com/rajat-suri"]').forEach(link => {
+    // Skip the footer link (let it open normally for accessibility)
+    if (link.closest('.footer-col')) return;
+    link.addEventListener('click', openCalModal);
+  });
+
+  calClose.addEventListener('click', closeCalModal);
+  calModal.addEventListener('click', function(e) {
+    if (e.target === calModal) closeCalModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && calModal.classList.contains('active')) closeCalModal();
   });
 </script>
 
