@@ -106,8 +106,23 @@
       color: var(--text-secondary);
       text-decoration: none;
       transition: color 0.3s;
+      position: relative;
     }
     .nav-links a:hover { color: var(--accent-orange); }
+    .nav-links a:not(.nav-cta)::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-orange);
+      border-radius: 1px;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-links a:not(.nav-cta):hover::after,
+    .nav-links a:not(.nav-cta).active::after { width: 100%; }
+    .nav-links a.active { color: var(--accent-orange); }
     .nav-links a.nav-cta {
       background: var(--accent-orange);
       color: white;
@@ -1840,6 +1855,233 @@
         background: rgba(0,0,0,0.08);
       }
     }
+
+    /* ===========================================
+       HERO DARK NAVY THEME
+       =========================================== */
+
+    /* Hero Background */
+    #hero {
+      background: linear-gradient(160deg, #0B1422 0%, #122035 40%, #162844 70%, #1A3050 100%);
+    }
+    /* Soft transition from dark hero to beige content */
+    #hero .hero-fade-edge {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background: linear-gradient(to bottom, transparent, var(--bg));
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    /* Atmospheric glow behind dashboard */
+    #hero .hero-visual::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,98,26,0.12) 0%, rgba(247,160,54,0.06) 40%, transparent 70%);
+      filter: blur(40px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Hero Typography */
+    #hero .display { color: #F0E8DD; }
+    #hero .gradient-text {
+      background: linear-gradient(135deg, #FF8A50 0%, #FFB347 30%, #E8621A 60%, #FF6B35 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    #hero .hero-tagline { color: rgba(220,215,205,0.6); }
+
+    /* Hero Buttons on dark bg */
+    #hero .btn-primary {
+      background: var(--accent-orange);
+      color: white;
+    }
+    #hero .btn-primary:hover {
+      background: #FF7A33;
+      box-shadow: 0 8px 32px rgba(232,98,26,0.35);
+    }
+    #hero .btn-outline {
+      color: rgba(240,232,221,0.85);
+      border-color: rgba(240,232,221,0.2);
+    }
+    #hero .btn-outline:hover {
+      background: rgba(240,232,221,0.08);
+      border-color: rgba(240,232,221,0.35);
+      color: white;
+    }
+
+    /* Trust signal */
+    #hero .hero-trust { border-top-color: rgba(255,255,255,0.06); }
+    #hero .hero-trust p { color: rgba(220,215,205,0.45); }
+    #hero .hero-trust p strong { color: rgba(240,232,221,0.8); }
+    #hero .trust-avatars span { border-color: #152238; }
+
+    /* Dashboard mockup — deep navy cards */
+    #hero .dashboard-mockup {
+      background: #1A2E4A;
+      box-shadow:
+        0 40px 80px rgba(0,0,0,0.4),
+        0 0 0 1px rgba(255,255,255,0.06),
+        0 0 60px rgba(232,98,26,0.08);
+    }
+    #hero .dashboard-mockup:hover {
+      box-shadow:
+        0 50px 100px rgba(0,0,0,0.5),
+        0 0 0 1px rgba(255,255,255,0.1),
+        0 0 80px rgba(232,98,26,0.12);
+    }
+    #hero .mockup-body { background: #1A2E4A; }
+    #hero .wf-node {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.08);
+    }
+    #hero .wf-node:hover {
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+    #hero .wf-label { color: rgba(220,215,205,0.55); }
+    #hero .wf-connector { background: rgba(255,255,255,0.08); }
+    #hero .mockup-stat {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.06);
+    }
+    #hero .m-stat-txt { color: rgba(220,215,205,0.4); }
+    #hero .mockup-status {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.06);
+      color: rgba(220,215,205,0.55);
+    }
+    #hero .float-card {
+      background: #1E3350;
+      color: rgba(240,232,221,0.8);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.06);
+    }
+
+    /* Grain texture: overlay blend for dark bg */
+    #hero::after { mix-blend-mode: overlay; opacity: 0.035; }
+
+    /* Blobs glow warmer on dark bg */
+    #hero .blob-main { opacity: 0.15; filter: blur(100px); }
+
+    /* Nav transparency on dark hero */
+    nav.hero-visible {
+      background: rgba(11,20,34,0.7);
+      backdrop-filter: blur(16px);
+      border-bottom-color: rgba(255,255,255,0.04);
+    }
+    nav.hero-visible .nav-brand span { color: #F0E8DD !important; }
+    nav.hero-visible .nav-links a { color: rgba(240,232,221,0.7); }
+    nav.hero-visible .nav-links a:hover { color: var(--accent-orange); }
+    nav.hero-visible .nav-links a.active { color: var(--accent-orange); }
+    nav.hero-visible .nav-links a:not(.nav-cta)::after { background: var(--accent-orange); }
+    nav.hero-visible .nav-links a.nav-cta {
+      background: var(--accent-orange);
+      color: white;
+    }
+    nav.hero-visible .nav-dropdown-trigger { color: rgba(240,232,221,0.7); }
+    nav.hero-visible .nav-dropdown-trigger svg { color: rgba(240,232,221,0.5); }
+    nav.hero-visible .nav-toggle span { background: #F0E8DD; }
+    /* Dropdown stays light even when nav is dark */
+    nav.hero-visible .nav-dropdown-menu {
+      background: var(--bg-card);
+    }
+
+    /* When scrolled past hero, revert to normal nav */
+    nav.scrolled.hero-visible {
+      background: rgba(245, 237, 227, 0.9);
+      border-bottom-color: transparent;
+    }
+    nav.scrolled.hero-visible .nav-brand span { color: var(--text-primary) !important; }
+    nav.scrolled.hero-visible .nav-links a { color: var(--text-secondary); }
+    nav.scrolled.hero-visible .nav-links a:hover { color: var(--accent-orange); }
+    nav.scrolled.hero-visible .nav-dropdown-trigger { color: var(--text-secondary); }
+    nav.scrolled.hero-visible .nav-dropdown-trigger svg { color: var(--text-secondary); }
+    nav.scrolled.hero-visible .nav-toggle span { background: var(--text-primary); }
+
+    /* Smooth transitions for nav color switching */
+    nav .nav-brand span,
+    nav .nav-links a,
+    nav .nav-dropdown-trigger,
+    nav .nav-dropdown-trigger svg,
+    nav .nav-toggle span {
+      transition: color 0.4s ease, background 0.4s ease;
+    }
+
+    /* Mobile nav dark hero overrides */
+    @media (max-width: 768px) {
+      nav.hero-visible:not(.scrolled) + .scroll-progress ~ .nav-links,
+      nav.hero-visible:not(.scrolled) .nav-links {
+        background: #122035;
+      }
+      nav.hero-visible:not(.scrolled) .nav-links a {
+        color: rgba(240,232,221,0.75);
+        border-bottom-color: rgba(255,255,255,0.06);
+      }
+      nav.hero-visible:not(.scrolled) .nav-dropdown-trigger {
+        color: rgba(240,232,221,0.75) !important;
+        border-bottom-color: rgba(255,255,255,0.06);
+      }
+      nav.hero-visible:not(.scrolled) .nav-dropdown-menu {
+        background: rgba(255,255,255,0.04);
+      }
+      nav.hero-visible:not(.scrolled) .nav-dropdown-item {
+        color: rgba(240,232,221,0.65);
+      }
+      nav.hero-visible:not(.scrolled) .nav-dropdown-item:hover {
+        background: rgba(255,255,255,0.06);
+      }
+      nav.hero-visible:not(.scrolled) .nav-dropdown-text h4 {
+        color: rgba(240,232,221,0.85);
+      }
+      nav.hero-visible:not(.scrolled) .nav-dropdown-text p {
+        color: rgba(240,232,221,0.45);
+      }
+    }
+
+    /* ===== BUTTON MICRO-INTERACTIONS ===== */
+    .btn {
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(232,98,26,0.3);
+    }
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(232,98,26,0.2);
+    }
+    .btn-outline:hover {
+      transform: translateY(-2px);
+    }
+    .btn-outline:active {
+      transform: translateY(0);
+    }
+
+    /* ===== SMOOTHER SECTION TRANSITIONS ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stagger-1 { transition-delay: 0.08s; }
+    .stagger-2 { transition-delay: 0.16s; }
+    .stagger-3 { transition-delay: 0.24s; }
+
   </style>
 </head>
 <body>
@@ -1847,7 +2089,7 @@
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- Navigation -->
-<nav>
+<nav class="hero-visible">
   <div class="nav-brand">
     <span style="font-size: 24px; font-weight: 800; letter-spacing: 1px; color: var(--text-primary);">SERENE<span style="color: var(--accent-orange);">LABS</span></span>
   </div>
@@ -1895,6 +2137,7 @@
 
 <!-- Hero -->
 <section id="hero">
+  <div class="hero-fade-edge"></div>
   <div class="container">
     <div class="hero-wrapper">
       <div class="hero-content">
@@ -2945,15 +3188,41 @@
 
   // === ENHANCEMENTS ===
 
-  // Scroll progress bar + scroll-aware nav
+  // Scroll progress bar + scroll-aware nav + hero visibility
   const scrollProgress = document.getElementById('scrollProgress');
   const navEl = document.querySelector('nav');
+  const heroSection = document.getElementById('hero');
   window.addEventListener('scroll', function() {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     scrollProgress.style.width = (scrollTop / docHeight * 100) + '%';
     navEl.classList.toggle('scrolled', scrollTop > 80);
+
+    // Toggle dark nav when over hero
+    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight - 100;
+    if (scrollTop < heroBottom) {
+      navEl.classList.add('hero-visible');
+    } else {
+      navEl.classList.remove('hero-visible');
+    }
   }, { passive: true });
+
+  // Active nav section highlighting
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  const sections = [];
+  navLinks.forEach(link => {
+    const id = link.getAttribute('href').slice(1);
+    const sec = document.getElementById(id);
+    if (sec) sections.push({ el: sec, link: link });
+  });
+  const observerOpts = { rootMargin: '-30% 0px -60% 0px', threshold: 0 };
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const match = sections.find(s => s.el === entry.target);
+      if (match) match.link.classList.toggle('active', entry.isIntersecting);
+    });
+  }, observerOpts);
+  sections.forEach(s => sectionObserver.observe(s.el));
 
   // Inject "Learn more" links into service cards
   document.querySelectorAll('.service-card').forEach(card => {
