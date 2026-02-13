@@ -8,7 +8,8 @@
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#09090b;--bg-card:rgba(255,255,255,0.03);--bg-card-solid:#111114;--border:rgba(255,255,255,0.06);--border-glow:rgba(139,92,246,0.5);--text:#f0f0f5;--text-dim:#71717a;--text-muted:#3f3f46;--purple:#8b5cf6;--purple-light:#a78bfa;--cyan:#06d6d0;--gradient:linear-gradient(135deg,#8b5cf6,#06d6d0);--font:'Inter Tight',sans-serif;--font-body:'Plus Jakarta Sans',sans-serif}
@@ -265,6 +266,6 @@ navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.cl
 document.querySelectorAll('[data-cal]').forEach(btn=>{btn.addEventListener('click',e=>{e.preventDefault();document.getElementById('cal-iframe').src='https://cal.com/rajat-suri-jh33ia/15min?theme=dark&layout=month_view';document.getElementById('cal-modal').style.display='flex';document.body.style.overflow='hidden'})});
 document.getElementById('cal-modal').addEventListener('click',e=>{if(e.target===e.currentTarget){e.currentTarget.style.display='none';document.body.style.overflow=''}});
 </script>
-<script src="https://zivo-chatbot.vercel.app/widget.js" data-bot-id="serenelabs" data-color="#8b5cf6" data-title="Hi there!" data-subtitle="How can we help?" data-api-url="https://zivo-chatbot.vercel.app" data-quick-replies="Social Media Automation, WhatsApp Bots, Lead Management, CRM Solutions, Want to Talk to Someone?"></script>
+<script defer src="https://zivo-chatbot.vercel.app/widget.js" data-bot-id="serenelabs" data-color="#8b5cf6" data-title="Hi there!" data-subtitle="How can we help?" data-api-url="https://zivo-chatbot.vercel.app" data-quick-replies="Social Media Automation, WhatsApp Bots, Lead Management, CRM Solutions, Want to Talk to Someone?"></script>
 </body>
 </html>
