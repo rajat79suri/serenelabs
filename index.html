@@ -357,7 +357,7 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; position: re
 /* ═══ RESPONSIVE ═══ */
 @media (max-width: 1024px) {
   .container { padding: 0 28px; }
-  .nav { padding: 16px 28px; }
+  .nav, .nav.scrolled { padding: 16px 28px; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .work-grid, .test-grid { grid-template-columns: repeat(2, 1fr); }
   .about-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -371,7 +371,7 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; position: re
   .nav-links a { font-size: 20px; display: block; padding: 16px 24px; }
   .nav-links .nav-cta-btn { margin-top: 16px; display: inline-block; width: auto; }
   .hamburger { display: flex; z-index: 1001; }
-  .nav { padding: 14px 20px; }
+  .nav, .nav.scrolled { padding: 14px 20px; }
   .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
   .hamburger.active span:nth-child(2) { opacity: 0; }
   .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
