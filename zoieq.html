@@ -386,6 +386,7 @@ footer{border-top:1px solid var(--border);padding:64px 0 40px;position:relative;
 </div>
 
 <script>
+history.scrollRestoration='manual';window.scrollTo(0,0);
 const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }}), { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 const ham = document.querySelector('.hamburger');
