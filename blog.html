@@ -55,8 +55,8 @@ a { color: inherit; text-decoration: none; }
 .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-dim); transition: color 0.3s; }
 .nav-links a:hover { color: var(--text); }
 .nav-cta-btn { padding: 10px 28px; border-radius: 10px; font-size: 13px; font-weight: 700; background: white; color: var(--bg); border: none; cursor: pointer; transition: all 0.3s; letter-spacing: 0.3px; text-transform: uppercase; }
-.hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 8px; }
-.hamburger span { width: 22px; height: 1.5px; background: var(--text); border-radius: 2px; }
+.hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 6px; padding: 8px; }
+.hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; }
 
 section { position: relative; z-index: 2; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
@@ -64,7 +64,7 @@ section { position: relative; z-index: 2; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 .grad { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-.page-hero { position: relative; padding: 160px 0 80px; overflow: hidden; z-index: 2; }
+.page-hero { position: relative; padding: 140px 0 40px; overflow: hidden; z-index: 2; }
 .page-hero .label { font-size: 11px; text-transform: uppercase; letter-spacing: 4px; color: var(--purple-light); font-weight: 700; margin-bottom: 20px; }
 .page-hero h1 { font-family: var(--font); font-weight: 900; font-size: clamp(40px, 6vw, 72px); line-height: 1.05; letter-spacing: -2px; margin-bottom: 20px; }
 .page-hero p { font-size: 18px; color: var(--text-dim); line-height: 1.7; max-width: 560px; }
@@ -83,9 +83,9 @@ section { position: relative; z-index: 2; }
 .featured-visual {
   display: flex; align-items: center; justify-content: center;
   background: linear-gradient(135deg, rgba(139,92,246,0.12), rgba(6,214,208,0.06));
-  min-height: 280px;
+  min-height: 200px;
 }
-.featured-visual svg { width: 80px; height: 80px; color: var(--text-muted); transition: color 0.4s; }
+.featured-visual svg { width: 72px; height: 72px; color: var(--text-muted); transition: color 0.4s; }
 .featured-card:hover .featured-visual svg { color: var(--purple-light); }
 .featured-body { padding: 48px; display: flex; flex-direction: column; justify-content: center; }
 .featured-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--cyan); font-weight: 700; margin-bottom: 16px; }
@@ -96,7 +96,7 @@ section { position: relative; z-index: 2; }
 .read-link:hover { color: var(--text); }
 
 /* Blog grid */
-.blog-section { padding: 0 0 160px; }
+.blog-section { padding: 0 0 80px; }
 .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .blog-card {
   background: var(--bg-card); border: 1px solid var(--border);
@@ -104,9 +104,9 @@ section { position: relative; z-index: 2; }
 }
 .blog-card:hover { border-color: var(--border-glow); transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,0.35); }
 .blog-visual {
-  height: 140px; display: flex; align-items: center; justify-content: center;
+  height: 100px; display: flex; align-items: center; justify-content: center;
 }
-.blog-visual svg { width: 56px; height: 56px; color: var(--text-muted); transition: color 0.4s; }
+.blog-visual svg { width: 40px; height: 40px; color: var(--text-muted); transition: color 0.4s; }
 .blog-card:hover .blog-visual svg { color: var(--purple-light); }
 .blog-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
 .blog-tag { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--purple-light); font-weight: 700; margin-bottom: 12px; }
@@ -115,7 +115,7 @@ section { position: relative; z-index: 2; }
 .blog-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
 
 /* CTA */
-.cta { padding: 80px 0 160px; }
+.cta { padding: 40px 0 80px; }
 .cta-box { text-align: center; padding: 96px 48px; border-radius: 28px; background: var(--bg-card-solid); border: 1px solid var(--border); position: relative; overflow: hidden; }
 .cta-box::before { content: ''; position: absolute; top: -50%; left: 20%; width: 60%; height: 200%; background: radial-gradient(ellipse, rgba(139,92,246,0.06), transparent 60%); animation: ctaBreath 5s ease-in-out infinite; }
 @keyframes ctaBreath { 0%,100%{opacity:0.4}50%{opacity:1} }
@@ -135,14 +135,14 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; position: re
 .footer-bottom { padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); }
 
 @media (max-width: 1024px) { .container { padding: 0 28px; } .nav { padding: 16px 28px; } .blog-grid { grid-template-columns: repeat(2, 1fr); } .footer-grid { grid-template-columns: 1fr 1fr; } .featured-card { grid-template-columns: 1fr; } .featured-visual { min-height: 160px; } }
-@media (max-width: 768px) { .nav-links { display: none; } .hamburger { display: flex; } .blog-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; gap: 12px; text-align: center; } .cta-box { padding: 56px 24px; } .featured-body { padding: 28px; } }
+@media (max-width: 768px) { .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(9,9,11,0.97); backdrop-filter: blur(24px); flex-direction: column; align-items: center; justify-content: center; gap: 28px; z-index: 999; } .nav-links.open { display: flex; } .nav-links a { font-size: 18px; } .hamburger { display: flex; z-index: 1001; } .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); } .hamburger.active span:nth-child(2) { opacity: 0; } .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); } .page-hero { padding: 120px 0 48px; } .featured { padding: 0 0 48px; } .blog-section { padding: 0 0 80px; } .blog-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; gap: 12px; text-align: center; } .cta-box { padding: 48px 20px; } .nav { padding: 14px 20px; } .container { padding: 0 20px; } .page-hero { padding: 100px 0 40px; } .cta { padding: 48px 0 80px; } .featured-body { padding: 28px; } .featured-card { grid-template-columns: 1fr; } .featured-visual { min-height: 120px; } }
 </style>
 </head>
 <body>
 <div class="dot-grid"></div>
 <div class="particles-global"><div class="pg"></div><div class="pg"></div><div class="pg"></div><div class="pg"></div><div class="pg"></div><div class="pg"></div><div class="pg"></div><div class="pg"></div><div class="pg"></div><div class="pg"></div><div class="pg"></div><div class="pg"></div><div class="pg"></div><div class="pg"></div><div class="pg"></div><div class="pg"></div><div class="pg"></div><div class="pg"></div><div class="pg"></div><div class="pg"></div></div>
 
-<nav class="nav"><div class="nav-inner"><a href="index.html" class="nav-logo">Serene<span>Labs</span></a><ul class="nav-links"><li><a href="index.html#about">About</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#how">How It Works</a></li><li><a href="work.html">Work</a></li><li><a href="blog.html" style="color:var(--text)">Blog</a></li><li><a href="https://cal.com/rajat-suri-jh33ia/15min" class="nav-cta-btn">Book a Call</a></li></ul><button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<nav class="nav"><div class="nav-inner"><a href="index.html" class="nav-logo">Serene<span>Labs</span></a><ul class="nav-links"><li><a href="index.html#about">About</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#how">How It Works</a></li><li><a href="work.html">Work</a></li><li><a href="blog.html" style="color:var(--text)">Blog</a></li><li><a href="#" data-cal class="nav-cta-btn">Book a Call</a></li></ul><button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
 
 <section class="page-hero"><div class="hero-glow g1"></div><div class="hero-glow g2"></div><div class="container">
   <div class="label">Blog</div>
@@ -152,7 +152,7 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; position: re
 
 <!-- Featured -->
 <section class="featured"><div class="container">
-  <a href="#" class="featured-card reveal">
+  <div class="featured-card reveal" style="cursor:default">
     <div class="featured-visual">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
     </div>
@@ -160,16 +160,16 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; position: re
       <div class="featured-badge">Featured</div>
       <h2>The 5 Processes Every SME Should Automate First</h2>
       <p>You don't need to automate everything. Start with these five high-impact workflows that save the most time for the least effort. Most go live in under a week.</p>
-      <span class="read-link">Read article</span>
+      <span class="read-link" style="color:var(--text-muted);font-size:12px;letter-spacing:1px;text-transform:uppercase">Coming Soon</span>
     </div>
-  </a>
+  </div>
 </div></section>
 
 <!-- Blog grid -->
 <section class="blog-section"><div class="container">
   <div class="blog-grid">
 
-    <a href="#" class="blog-card reveal">
+    <div class="blog-card reveal">
       <div class="blog-visual" style="background:linear-gradient(135deg,rgba(139,92,246,0.1),rgba(6,214,208,0.05))">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
       </div>
@@ -179,9 +179,9 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; position: re
         <p>Most SMEs don't have a lead problem. They have a follow-up problem. Here's the system that closes the gap.</p>
         <div class="blog-meta"><span>8 min read</span><span>Feb 2026</span></div>
       </div>
-    </a>
+    </div>
 
-    <a href="#" class="blog-card reveal" style="transition-delay:80ms">
+    <div class="blog-card reveal" style="transition-delay:80ms">
       <div class="blog-visual" style="background:linear-gradient(135deg,rgba(6,214,208,0.1),rgba(139,92,246,0.05))">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
       </div>
@@ -191,9 +191,9 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; position: re
         <p>Not all bots are created equal. We break down what customers respond to, what annoys them, and how to get it right.</p>
         <div class="blog-meta"><span>6 min read</span><span>Feb 2026</span></div>
       </div>
-    </a>
+    </div>
 
-    <a href="#" class="blog-card reveal" style="transition-delay:160ms">
+    <div class="blog-card reveal" style="transition-delay:160ms">
       <div class="blog-visual" style="background:linear-gradient(135deg,rgba(251,191,36,0.06),rgba(139,92,246,0.05))">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
       </div>
@@ -203,9 +203,9 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; position: re
         <p>AI content generation plus automated scheduling. The exact system we use to run 4 brand accounts with one person.</p>
         <div class="blog-meta"><span>5 min read</span><span>Jan 2026</span></div>
       </div>
-    </a>
+    </div>
 
-    <a href="#" class="blog-card reveal">
+    <div class="blog-card reveal">
       <div class="blog-visual" style="background:linear-gradient(135deg,rgba(139,92,246,0.08),rgba(6,214,208,0.06))">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
       </div>
@@ -215,9 +215,9 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; position: re
         <p>A simple dashboard saved one of our clients 15 hours a week. Here's what to track and what to ignore.</p>
         <div class="blog-meta"><span>7 min read</span><span>Jan 2026</span></div>
       </div>
-    </a>
+    </div>
 
-    <a href="#" class="blog-card reveal" style="transition-delay:80ms">
+    <div class="blog-card reveal" style="transition-delay:80ms">
       <div class="blog-visual" style="background:linear-gradient(135deg,rgba(6,214,208,0.08),rgba(139,92,246,0.06))">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
       </div>
@@ -227,9 +227,9 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; position: re
         <p>CRM to WhatsApp to invoicing to email. How to make your tools talk to each other without writing a single line of code.</p>
         <div class="blog-meta"><span>6 min read</span><span>Jan 2026</span></div>
       </div>
-    </a>
+    </div>
 
-    <a href="#" class="blog-card reveal" style="transition-delay:160ms">
+    <div class="blog-card reveal" style="transition-delay:160ms">
       <div class="blog-visual" style="background:linear-gradient(135deg,rgba(139,92,246,0.06),rgba(251,191,36,0.05))">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
       </div>
@@ -239,7 +239,7 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; position: re
         <p>That next hire might not be the answer. Sometimes a workflow that costs 1/10th the salary does 10x the work.</p>
         <div class="blog-meta"><span>9 min read</span><span>Dec 2025</span></div>
       </div>
-    </a>
+    </div>
 
   </div>
 </div></section>
@@ -247,7 +247,7 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; position: re
 <section class="cta"><div class="container"><div class="cta-box reveal">
   <h2>Still doing it <span class="grad">manually?</span></h2>
   <p>15-minute call. We'll audit your workflow and tell you exactly what to automate first.</p>
-  <a href="https://cal.com/rajat-suri-jh33ia/15min" class="btn-glow">Book Your Free Workflow Audit</a>
+  <a href="#" data-cal class="btn-glow">Book Your Free Workflow Audit</a>
 </div></div></section>
 
 <footer><div class="container">
@@ -255,14 +255,37 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; position: re
     <div class="footer-brand"><div class="nav-logo" style="font-size:18px">Serene<span style="color:var(--purple-light)">Labs</span></div><p>Business process automation for growing companies. Built by operators, not consultants.</p></div>
     <div class="footer-col"><h4>Company</h4><a href="index.html#about">About</a><a href="index.html#services">Services</a><a href="work.html">Our Work</a><a href="blog.html">Blog</a></div>
     <div class="footer-col"><h4>Products</h4><a href="https://zivo-chatbot.vercel.app/">Zivo Chatbot</a><a href="zoieq.html">Zoieq CRM</a></div>
-    <div class="footer-col"><h4>Connect</h4><a href="https://wa.me/919811654917">WhatsApp</a><a href="https://www.linkedin.com/company/serenelabs">LinkedIn</a><a href="https://cal.com/rajat-suri-jh33ia/15min">Book a Call</a></div>
+    <div class="footer-col"><h4>Connect</h4><a href="https://wa.me/919811654917">WhatsApp</a><a href="https://www.linkedin.com/company/serenelabs">LinkedIn</a><a href="#" data-cal>Book a Call</a></div>
   </div>
   <div class="footer-bottom"><span>&copy; 2026 Serene Labs.</span><a href="#" style="color:var(--purple-light)">Back to top</a></div>
 </div></footer>
 
+<!-- Cal.com Modal -->
+<div id="cal-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);align-items:center;justify-content:center">
+  <div style="position:relative;width:100%;max-width:520px;height:90vh;max-height:700px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.08)">
+    <button onclick="document.getElementById('cal-modal').style.display='none';document.body.style.overflow=''" style="position:absolute;top:12px;right:12px;z-index:10;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.1);background:rgba(9,9,11,0.9);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center">&times;</button>
+    <iframe id="cal-iframe" src="" style="width:100%;height:100%;border:none;background:#09090b" allow="payment"></iframe>
+  </div>
+</div>
+
 <script>
 const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }}), { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+const ham = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+ham.addEventListener('click', () => { ham.classList.toggle('active'); navLinks.classList.toggle('open'); document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : ''; });
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { ham.classList.remove('active'); navLinks.classList.remove('open'); document.body.style.overflow = ''; }));
+document.querySelectorAll('[data-cal]').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    document.getElementById('cal-iframe').src = 'https://cal.com/rajat-suri-jh33ia/15min?theme=dark&layout=month_view';
+    document.getElementById('cal-modal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  });
+});
+document.getElementById('cal-modal').addEventListener('click', e => {
+  if (e.target === e.currentTarget) { e.currentTarget.style.display = 'none'; document.body.style.overflow = ''; }
+});
 </script>
 </body>
 </html>
