@@ -19,7 +19,7 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%231A1A1A'/%3E%3Ctext x='50' y='68' font-family='Arial Black, sans-serif' font-size='60' font-weight='900' fill='white' text-anchor='middle'%3Es%3C/text%3E%3Ccircle cx='78' cy='28' r='10' fill='%23E8621A'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #F5EDE3;
@@ -49,17 +49,17 @@
     }
 
     /* Typography */
-    .display {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(44px, 8.5vw, 96px);
-      line-height: 1.05;
-      letter-spacing: -1.5px;
+    .display { 
+      font-family: 'Bebas Neue', sans-serif; 
+      font-size: clamp(48px, 10vw, 120px); 
+      line-height: 0.95; 
+      letter-spacing: -1px; 
     }
-    .heading-lg {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(30px, 4.5vw, 52px);
-      line-height: 1.1;
-      letter-spacing: -0.5px;
+    .heading-lg { 
+      font-family: 'Bebas Neue', sans-serif; 
+      font-size: clamp(32px, 5vw, 56px); 
+      line-height: 1; 
+      letter-spacing: 0.5px; 
     }
     .heading-md { 
       font-family: 'DM Sans', sans-serif; 
@@ -106,23 +106,8 @@
       color: var(--text-secondary);
       text-decoration: none;
       transition: color 0.3s;
-      position: relative;
     }
     .nav-links a:hover { color: var(--accent-orange); }
-    .nav-links a:not(.nav-cta)::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent-orange);
-      border-radius: 1px;
-      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .nav-links a:not(.nav-cta):hover::after,
-    .nav-links a:not(.nav-cta).active::after { width: 100%; }
-    .nav-links a.active { color: var(--accent-orange); }
     .nav-links a.nav-cta {
       background: var(--accent-orange);
       color: white;
@@ -970,8 +955,8 @@
       flex-direction: column;
     }
     .reviews-panel-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 22px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
       margin-bottom: 16px;
       color: var(--text-primary);
     }
@@ -1122,8 +1107,8 @@
     }
     @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
     .contact-info h3 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 30px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
       margin-bottom: 16px;
     }
     .contact-info p {
@@ -1855,233 +1840,6 @@
         background: rgba(0,0,0,0.08);
       }
     }
-
-    /* ===========================================
-       HERO DARK NAVY THEME
-       =========================================== */
-
-    /* Hero Background */
-    #hero {
-      background: linear-gradient(160deg, #0B1422 0%, #122035 40%, #162844 70%, #1A3050 100%);
-    }
-    /* Soft transition from dark hero to beige content */
-    #hero .hero-fade-edge {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 100px;
-      background: linear-gradient(to bottom, transparent, var(--bg));
-      z-index: 3;
-      pointer-events: none;
-    }
-
-    /* Atmospheric glow behind dashboard */
-    #hero .hero-visual::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 380px;
-      height: 380px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(232,98,26,0.12) 0%, rgba(247,160,54,0.06) 40%, transparent 70%);
-      filter: blur(40px);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* Hero Typography */
-    #hero .display { color: #F0E8DD; }
-    #hero .gradient-text {
-      background: linear-gradient(135deg, #FF8A50 0%, #FFB347 30%, #E8621A 60%, #FF6B35 100%);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    #hero .hero-tagline { color: rgba(220,215,205,0.6); }
-
-    /* Hero Buttons on dark bg */
-    #hero .btn-primary {
-      background: var(--accent-orange);
-      color: white;
-    }
-    #hero .btn-primary:hover {
-      background: #FF7A33;
-      box-shadow: 0 8px 32px rgba(232,98,26,0.35);
-    }
-    #hero .btn-outline {
-      color: rgba(240,232,221,0.85);
-      border-color: rgba(240,232,221,0.2);
-    }
-    #hero .btn-outline:hover {
-      background: rgba(240,232,221,0.08);
-      border-color: rgba(240,232,221,0.35);
-      color: white;
-    }
-
-    /* Trust signal */
-    #hero .hero-trust { border-top-color: rgba(255,255,255,0.06); }
-    #hero .hero-trust p { color: rgba(220,215,205,0.45); }
-    #hero .hero-trust p strong { color: rgba(240,232,221,0.8); }
-    #hero .trust-avatars span { border-color: #152238; }
-
-    /* Dashboard mockup — deep navy cards */
-    #hero .dashboard-mockup {
-      background: #1A2E4A;
-      box-shadow:
-        0 40px 80px rgba(0,0,0,0.4),
-        0 0 0 1px rgba(255,255,255,0.06),
-        0 0 60px rgba(232,98,26,0.08);
-    }
-    #hero .dashboard-mockup:hover {
-      box-shadow:
-        0 50px 100px rgba(0,0,0,0.5),
-        0 0 0 1px rgba(255,255,255,0.1),
-        0 0 80px rgba(232,98,26,0.12);
-    }
-    #hero .mockup-body { background: #1A2E4A; }
-    #hero .wf-node {
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(255,255,255,0.08);
-    }
-    #hero .wf-node:hover {
-      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-    }
-    #hero .wf-label { color: rgba(220,215,205,0.55); }
-    #hero .wf-connector { background: rgba(255,255,255,0.08); }
-    #hero .mockup-stat {
-      background: rgba(255,255,255,0.04);
-      border-color: rgba(255,255,255,0.06);
-    }
-    #hero .m-stat-txt { color: rgba(220,215,205,0.4); }
-    #hero .mockup-status {
-      background: rgba(255,255,255,0.04);
-      border-color: rgba(255,255,255,0.06);
-      color: rgba(220,215,205,0.55);
-    }
-    #hero .float-card {
-      background: #1E3350;
-      color: rgba(240,232,221,0.8);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.06);
-    }
-
-    /* Grain texture: overlay blend for dark bg */
-    #hero::after { mix-blend-mode: overlay; opacity: 0.035; }
-
-    /* Blobs glow warmer on dark bg */
-    #hero .blob-main { opacity: 0.15; filter: blur(100px); }
-
-    /* Nav transparency on dark hero */
-    nav.hero-visible {
-      background: rgba(11,20,34,0.7);
-      backdrop-filter: blur(16px);
-      border-bottom-color: rgba(255,255,255,0.04);
-    }
-    nav.hero-visible .nav-brand span { color: #F0E8DD !important; }
-    nav.hero-visible .nav-links a { color: rgba(240,232,221,0.7); }
-    nav.hero-visible .nav-links a:hover { color: var(--accent-orange); }
-    nav.hero-visible .nav-links a.active { color: var(--accent-orange); }
-    nav.hero-visible .nav-links a:not(.nav-cta)::after { background: var(--accent-orange); }
-    nav.hero-visible .nav-links a.nav-cta {
-      background: var(--accent-orange);
-      color: white;
-    }
-    nav.hero-visible .nav-dropdown-trigger { color: rgba(240,232,221,0.7); }
-    nav.hero-visible .nav-dropdown-trigger svg { color: rgba(240,232,221,0.5); }
-    nav.hero-visible .nav-toggle span { background: #F0E8DD; }
-    /* Dropdown stays light even when nav is dark */
-    nav.hero-visible .nav-dropdown-menu {
-      background: var(--bg-card);
-    }
-
-    /* When scrolled past hero, revert to normal nav */
-    nav.scrolled.hero-visible {
-      background: rgba(245, 237, 227, 0.9);
-      border-bottom-color: transparent;
-    }
-    nav.scrolled.hero-visible .nav-brand span { color: var(--text-primary) !important; }
-    nav.scrolled.hero-visible .nav-links a { color: var(--text-secondary); }
-    nav.scrolled.hero-visible .nav-links a:hover { color: var(--accent-orange); }
-    nav.scrolled.hero-visible .nav-dropdown-trigger { color: var(--text-secondary); }
-    nav.scrolled.hero-visible .nav-dropdown-trigger svg { color: var(--text-secondary); }
-    nav.scrolled.hero-visible .nav-toggle span { background: var(--text-primary); }
-
-    /* Smooth transitions for nav color switching */
-    nav .nav-brand span,
-    nav .nav-links a,
-    nav .nav-dropdown-trigger,
-    nav .nav-dropdown-trigger svg,
-    nav .nav-toggle span {
-      transition: color 0.4s ease, background 0.4s ease;
-    }
-
-    /* Mobile nav dark hero overrides */
-    @media (max-width: 768px) {
-      nav.hero-visible:not(.scrolled) + .scroll-progress ~ .nav-links,
-      nav.hero-visible:not(.scrolled) .nav-links {
-        background: #122035;
-      }
-      nav.hero-visible:not(.scrolled) .nav-links a {
-        color: rgba(240,232,221,0.75);
-        border-bottom-color: rgba(255,255,255,0.06);
-      }
-      nav.hero-visible:not(.scrolled) .nav-dropdown-trigger {
-        color: rgba(240,232,221,0.75) !important;
-        border-bottom-color: rgba(255,255,255,0.06);
-      }
-      nav.hero-visible:not(.scrolled) .nav-dropdown-menu {
-        background: rgba(255,255,255,0.04);
-      }
-      nav.hero-visible:not(.scrolled) .nav-dropdown-item {
-        color: rgba(240,232,221,0.65);
-      }
-      nav.hero-visible:not(.scrolled) .nav-dropdown-item:hover {
-        background: rgba(255,255,255,0.06);
-      }
-      nav.hero-visible:not(.scrolled) .nav-dropdown-text h4 {
-        color: rgba(240,232,221,0.85);
-      }
-      nav.hero-visible:not(.scrolled) .nav-dropdown-text p {
-        color: rgba(240,232,221,0.45);
-      }
-    }
-
-    /* ===== BUTTON MICRO-INTERACTIONS ===== */
-    .btn {
-      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(232,98,26,0.3);
-    }
-    .btn-primary:active {
-      transform: translateY(0);
-      box-shadow: 0 2px 8px rgba(232,98,26,0.2);
-    }
-    .btn-outline:hover {
-      transform: translateY(-2px);
-    }
-    .btn-outline:active {
-      transform: translateY(0);
-    }
-
-    /* ===== SMOOTHER SECTION TRANSITIONS ===== */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .stagger-1 { transition-delay: 0.08s; }
-    .stagger-2 { transition-delay: 0.16s; }
-    .stagger-3 { transition-delay: 0.24s; }
-
   </style>
 </head>
 <body>
@@ -2089,7 +1847,7 @@
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- Navigation -->
-<nav class="hero-visible">
+<nav>
   <div class="nav-brand">
     <span style="font-size: 24px; font-weight: 800; letter-spacing: 1px; color: var(--text-primary);">SERENE<span style="color: var(--accent-orange);">LABS</span></span>
   </div>
@@ -2137,11 +1895,10 @@
 
 <!-- Hero -->
 <section id="hero">
-  <div class="hero-fade-edge"></div>
   <div class="container">
     <div class="hero-wrapper">
       <div class="hero-content">
-        <h1 class="display animate">Automate<br>the <span class="gradient-text">Boring.</span></h1>
+        <h1 class="display animate">AUTOMATE<br>THE <span class="gradient-text">BORING.</span></h1>
         <p class="hero-tagline">
           An automation agency that helps you build systems that run your business while you sleep.
         </p>
@@ -2215,7 +1972,7 @@
       <!-- Left: Text -->
       <div class="about-content">
         <span class="label fade-up">About Us</span>
-        <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">Built by Operators.<br>Not Consultants.</h2>
+        <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">BUILT BY OPERATORS.<br>NOT CONSULTANTS.</h2>
         <div class="about-text fade-up stagger-2" style="margin-top: 24px;">
           <p>Born out of a passion to build systems and automations that solve problems, not create them.</p>
           <p>Every day, teams waste hours creating content, updating social media handles, chasing leads, updating spreadsheets, sending follow-ups, and generating reports. It's not that they're lazy. It's that no one built them a better way.</p>
@@ -2287,7 +2044,7 @@
   <div class="container">
     <div style="text-align: center; max-width: 600px; margin: 0 auto;">
       <span class="label fade-up" style="color: var(--accent-amber);">How It Works</span>
-      <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px; color: var(--bg);">Automation in Action</h2>
+      <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px; color: var(--bg);">AUTOMATION IN ACTION</h2>
     </div>
 
     <!-- Flow Diagrams Grid -->
@@ -2382,7 +2139,7 @@
   <div class="container">
     <div style="text-align: center; max-width: 700px; margin: 0 auto;">
       <span class="label fade-up">What We Do</span>
-      <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">We Help You Grow.<br>Without Growing Your Team.</h2>
+      <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">WE HELP YOU GROW.<br>WITHOUT GROWING YOUR TEAM.</h2>
     </div>
     <div class="services-grid">
       <div class="service-card fade-up stagger-1">
@@ -2453,7 +2210,7 @@
       <div>
         <div style="margin-bottom: 24px;">
           <span class="label fade-up">Free Assessment</span>
-          <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px; font-size: clamp(28px, 5vw, 36px);">Do You Need Automation?</h2>
+          <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px; font-size: clamp(28px, 5vw, 36px);">DO YOU NEED AUTOMATION?</h2>
           <p class="fade-up stagger-2" style="color: var(--text-secondary); margin-top: 12px; font-size: 15px;">2-minute quiz to see how much you could save.</p>
         </div>
         <div class="quiz-container fade-up stagger-3">
@@ -2672,7 +2429,7 @@
   <div class="container">
     <div style="text-align: center; max-width: 600px; margin: 0 auto;">
       <span class="label fade-up">Our Work</span>
-      <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">Real Problems. Real Solutions.</h2>
+      <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">REAL PROBLEMS. REAL SOLUTIONS.</h2>
     </div>
     <div class="cases-grid">
       <a href="work/social-media-automation.html" class="case-card fade-up stagger-1" style="text-decoration: none;">
@@ -2720,7 +2477,7 @@
   <div class="container">
     <div style="text-align: center; max-width: 600px; margin: 0 auto;">
       <span class="label fade-up">FAQ</span>
-      <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">Common Questions</h2>
+      <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">COMMON QUESTIONS</h2>
     </div>
     <div class="faq-container fade-up stagger-2" style="margin-top: 40px;">
 
@@ -2789,7 +2546,7 @@
   <div class="container">
     <div style="text-align: center; max-width: 600px; margin: 0 auto;">
       <span class="label fade-up">Insights</span>
-      <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">From the Blog</h2>
+      <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">FROM THE BLOG</h2>
       <p class="fade-up stagger-2" style="color: var(--text-secondary); margin-top: 12px;">Practical tips on automation, productivity, and growing your business smarter.</p>
     </div>
     <div class="blog-grid">
@@ -2840,7 +2597,7 @@
   <div class="container">
     <div style="text-align: center; max-width: 600px; margin: 0 auto;">
       <span class="label fade-up">Get in Touch</span>
-      <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">Ready to Automate?</h2>
+      <h2 class="heading-lg fade-up stagger-1" style="margin-top: 12px;">READY TO AUTOMATE?</h2>
     </div>
     <div class="contact-grid">
       <div class="contact-info fade-up stagger-2">
@@ -3188,41 +2945,15 @@
 
   // === ENHANCEMENTS ===
 
-  // Scroll progress bar + scroll-aware nav + hero visibility
+  // Scroll progress bar + scroll-aware nav
   const scrollProgress = document.getElementById('scrollProgress');
   const navEl = document.querySelector('nav');
-  const heroSection = document.getElementById('hero');
   window.addEventListener('scroll', function() {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     scrollProgress.style.width = (scrollTop / docHeight * 100) + '%';
     navEl.classList.toggle('scrolled', scrollTop > 80);
-
-    // Toggle dark nav when over hero
-    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight - 100;
-    if (scrollTop < heroBottom) {
-      navEl.classList.add('hero-visible');
-    } else {
-      navEl.classList.remove('hero-visible');
-    }
   }, { passive: true });
-
-  // Active nav section highlighting
-  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-  const sections = [];
-  navLinks.forEach(link => {
-    const id = link.getAttribute('href').slice(1);
-    const sec = document.getElementById(id);
-    if (sec) sections.push({ el: sec, link: link });
-  });
-  const observerOpts = { rootMargin: '-30% 0px -60% 0px', threshold: 0 };
-  const sectionObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const match = sections.find(s => s.el === entry.target);
-      if (match) match.link.classList.toggle('active', entry.isIntersecting);
-    });
-  }, observerOpts);
-  sections.forEach(s => sectionObserver.observe(s.el));
 
   // Inject "Learn more" links into service cards
   document.querySelectorAll('.service-card').forEach(card => {
