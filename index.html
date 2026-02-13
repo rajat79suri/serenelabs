@@ -365,7 +365,7 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; position: re
   .float-obj, .float-dot { display: none; }
 }
 @media (max-width: 768px) {
-  .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(9,9,11,0.97); backdrop-filter: blur(24px); flex-direction: column; align-items: center; justify-content: center; gap: 0; z-index: 999; padding: 0; margin: 0; }
+  .nav-links { display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(9,9,11,0.97); backdrop-filter: blur(24px); flex-direction: column; align-items: center; justify-content: center; gap: 0; z-index: 999; padding: 0; margin: 0; }
   .nav-links.open { display: flex; }
   .nav-links li { width: 100%; text-align: center; }
   .nav-links a { font-size: 20px; display: block; padding: 16px 24px; }
@@ -375,7 +375,8 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; position: re
   .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
   .hamburger.active span:nth-child(2) { opacity: 0; }
   .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
-  .hero { padding: 80px 20px 32px; min-height: auto; }
+  .nav.menu-open { bottom: 0; }
+  .hero { padding: 80px 20px 32px; min-height: 100svh; }
   .hero-line-1 { font-size: clamp(28px, 9vw, 48px); }
   .hero-line-2 { font-size: clamp(56px, 18vw, 120px); }
   .hero-sub { font-size: 15px; margin: 14px auto 24px; }
@@ -613,8 +614,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click
 // Mobile menu
 const ham = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
-ham.addEventListener('click', () => { ham.classList.toggle('active'); navLinks.classList.toggle('open'); document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : ''; });
-navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { ham.classList.remove('active'); navLinks.classList.remove('open'); document.body.style.overflow = ''; }));
+ham.addEventListener('click', () => { ham.classList.toggle('active'); navLinks.classList.toggle('open'); document.querySelector('.nav').classList.toggle('menu-open'); document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : ''; });
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { ham.classList.remove('active'); navLinks.classList.remove('open'); document.querySelector('.nav').classList.remove('menu-open'); document.body.style.overflow = ''; }));
 // Cal.com modal
 document.querySelectorAll('[data-cal]').forEach(btn => {
   btn.addEventListener('click', e => {
