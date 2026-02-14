@@ -194,7 +194,7 @@ const ham=document.querySelector('.hamburger');
 const navLinks=document.querySelector('.nav-links');
 ham.addEventListener('click',()=>{ham.classList.toggle('active');navLinks.classList.toggle('open');document.querySelector('.nav').classList.toggle('menu-open');document.body.style.overflow=navLinks.classList.contains('open')?'hidden':''});
 navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('active');navLinks.classList.remove('open');document.querySelector('.nav').classList.remove('menu-open');document.body.style.overflow=''}));
-document.querySelectorAll('[data-cal]').forEach(btn=>{btn.addEventListener('click',e=>{e.preventDefault();document.getElementById('cal-iframe').src='https://cal.com/rajat-suri-jh33ia/15min?theme=dark&layout=month_view';document.getElementById('cal-modal').style.display='flex';document.body.style.overflow='hidden'})});
+document.querySelectorAll('[data-cal]').forEach(btn=>{btn.addEventListener('click',e=>{e.preventDefault();document.getElementById('cal-iframe').src='https://cal.com/serenelabs/discoverycall?theme=dark&layout=month_view';document.getElementById('cal-modal').style.display='flex';document.body.style.overflow='hidden'})});
 document.getElementById('cal-modal').addEventListener('click',e=>{if(e.target===e.currentTarget){e.currentTarget.style.display='none';document.body.style.overflow=''}});
 </script>
 <script defer src="https://zivo-chatbot.vercel.app/widget.js" data-bot-id="serenelabs" data-color="#8b5cf6" data-title="Hi there!" data-subtitle="How can we help?" data-api-url="https://zivo-chatbot.vercel.app" data-quick-replies="Social Media Automation, WhatsApp Bots, Lead Management, CRM Solutions, Want to Talk to Someone?"></script>
